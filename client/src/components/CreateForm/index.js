@@ -12,11 +12,11 @@ function CreateForm() {
         <Form>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Title</Form.Label>
-                <Form.Control size="lg" type="text" placeholder="Add a Title" />
+                <Form.Control size="lg" type="text" placeholder="Title your post" />
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>What Game are you Playing?</Form.Label>
-                <Form.Control type="text" placeholder="Title of Game" />
+                <Form.Label>What game are you playing?</Form.Label>
+                <Form.Control type="text" placeholder="Name of game" />
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Message:</Form.Label>
@@ -28,13 +28,13 @@ function CreateForm() {
                     <Col sm={10}>
                     <Form.Check
                         type="radio"
-                        label="Looking for a Player"
+                        label="Looking for a player"
                         name="formHorizontalRadios"
                         id="formHorizontalRadios1"
                     />
                     <Form.Check
                         type="radio"
-                        label="Looking for a Game"
+                        label="Looking for a game"
                         name="formHorizontalRadios"
                         id="formHorizontalRadios2"
                     />
