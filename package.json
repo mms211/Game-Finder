@@ -1,7 +1,7 @@
 {
   "name": "game-finder",
   "version": "0.0.0",
-  "private": true,
+  "main": "./bin/www",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "watch": "nodemon ./bin/www",
