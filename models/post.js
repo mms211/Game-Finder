@@ -2,19 +2,31 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-  email: {
+  postType: {
     type: String,
-    unique: true,
-    lowercase: true,
-    trim: true,
-    required: true,
-    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-  },
-  password: {
-    type: String,
-    unique: true,
     required: true
+  },
+  user: {
+    type: String,
+    required: true
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  body: {
+    type: String,
+    required: true
+  },
+  responses: {
+    type: String,
+    enum: true
   }
+},
+{
+    toJSON: {
+      virtuals: true
+    }
 });
 
 const Post = mongoose.model("Post", postSchema);

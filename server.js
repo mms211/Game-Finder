@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const apiRouter = require('./routes/apiRoutes');
 
 const app = express();
+const db = mongoose.connection;
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -23,6 +24,6 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/GameFinderDB");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/GameFinderDB", { useNewUrlParser: true });
 
 module.exports = app;
