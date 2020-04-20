@@ -1,9 +1,15 @@
 import React from "react";
+import Post from "../Post";
 
 function Home() {
   return (
     <>
-      <h1>Hello! This is the homepage</h1>
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
     </>
   );
 }
