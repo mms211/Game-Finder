@@ -1,13 +1,13 @@
 {
   "name": "game-finder",
   "version": "0.0.0",
-  "private": true,
+  "main": "./bin/www",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "watch": "nodemon ./bin/www",
     "start:prod": "node bin/www",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
@@ -16,6 +16,7 @@
     "axios": "^0.19.2",
     "cookie-parser": "^1.4.4",
     "debug": "^2.6.9",
+    "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.9",
