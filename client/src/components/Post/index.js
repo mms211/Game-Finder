@@ -1,9 +1,10 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import "./style.css";
 
 function Post() {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "18rem" }} className="post-wrapper">
       <Card.Body>
         <Card.Title>Post Title</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Looking for Player</Card.Subtitle>

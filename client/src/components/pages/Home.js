@@ -1,16 +1,20 @@
 import React from "react";
 import Post from "../Post";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 function Home() {
   return (
-    <>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-    </>
+    <Container>
+      <Row className="justify-content-md-center">
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+      </Row>
+    </Container>
   );
 }
 
