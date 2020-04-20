@@ -22,6 +22,9 @@ function NavBar() {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
           <Link to="/" className="nav-item nav-link">
+            Profile
+          </Link>
+          <Link to="/" className="nav-item nav-link">
             Make A Post
           </Link>
           <Link to="/" className="nav-item nav-link">
