@@ -21,13 +21,13 @@ function NavBar() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
-          <Link to="/" className="nav-item nav-link">
+          <Link to="/profile" className="nav-item nav-link">
             Profile
           </Link>
-          <Link to="/" className="nav-item nav-link">
-            Make A Post
+          <Link to="/create" className="nav-item nav-link">
+            Create A Post
           </Link>
-          <Link to="/" className="nav-item nav-link">
+          <Link to="/filter" className="nav-item nav-link">
             Filter Posts
           </Link>
         </div>
