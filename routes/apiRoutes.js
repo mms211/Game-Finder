@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const UserController = require('../models/controllers/userDB.controller.js');
-const PostController = require('../models/controllers/postDB.controller.js');
+const UserController = require('../controllers/UserController.js');
+const PostController = require('../controllers/PostController.js');
 
 // root directory == "/api/"
 
@@ -16,7 +16,7 @@ router.get('/admin', function (req, res, next) {
 // ======== To be wired up once the controllers are done ========
 
 // ==== user CRUD ====
-  
+
 // create:
 router.post('/users/add', UserController.addUser);
 
@@ -25,7 +25,7 @@ router.get('/users/all', UserController.findAll);
 router.get('/users/find/:id', UserController.findById);
 
 // update:
-router.put('/users/update', UserController.update);
+router.put('/users/update', UserController.updateUser);
 
 // delete:
 router.delete('/users/delete/:id', UserController.deleteById);
@@ -40,9 +40,9 @@ router.get('/posts/all', PostController.findAll);
 router.get('/posts/:id', PostController.findById);
 
 // update:
-router.put('/posts/update', PostController.update);
+router.put('/posts/update', PostController.updatePost);
 
 // delete:
-router.delete('/posts/delete/:id', PostController.delete);
+router.delete('/posts/delete/:id', PostController.deleteById);
 
 module.exports = router;
