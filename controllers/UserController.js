@@ -15,7 +15,7 @@ module.exports = {
             .then(() => {
                 return res.status(201).json({
                     success: true,
-                    id: post._id,
+                    id: user._id,
                     message: 'Successfully added user!'
                 })
             })
@@ -60,14 +60,6 @@ module.exports = {
         await User.findOneAndUpdate(
             { _id: body._id },
             {
-                // this function is only built to update whether or not
-                // the movie is seen. But we can update more stuff based
-                // on what we pass in the 'put' body
-                // title: body.title,
-                // director: body.director,
-                // writer: body.writer,
-                // releaseYear: body.releaseYear,
-                // metacriticScore: body.metacriticScore,
                 email: body.email,
                 password: body.password,
                 updatedAt: Date.now()
@@ -77,7 +69,11 @@ module.exports = {
             { new: true }
         )
             .then(update => {
-                return res.json({ success: true, user: update });
+                return res.json({
+                    success: true,
+                    userEmail: update.email,
+                    userId: update._id
+                });
             });
     },
     // ======== DELETE ========

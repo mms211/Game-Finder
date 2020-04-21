@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 if (mongoose.connection.readyState === 0) {
-  mongoose.connect(require('./connection-string'));
+  mongoose.connect(require('./connection-string'), {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+  });
 }
 
 const newSchema = new Schema({
