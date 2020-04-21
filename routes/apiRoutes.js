@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-// const UserController = require('../models/controllers/userDB.controller.js');
-// const PostController = require('../models/controllers/postDB.controller.js');
+const UserController = require('../models/controllers/userDB.controller.js');
+const PostController = require('../models/controllers/postDB.controller.js');
 
 // root directory == "/api/"
 
@@ -13,7 +13,7 @@ router.get('/admin', function (req, res, next) {
   });
 });
 
-/* ======== To be wired up once the controllers are done ========
+// ======== To be wired up once the controllers are done ========
 
 // ==== user CRUD ====
   
@@ -35,7 +35,7 @@ router.delete('/users/delete/:id', UserController.deleteById);
 // create:
 router.post('/posts/add', PostController.addPost);
 
-//read:
+// read:
 router.get('/posts/all', PostController.findAll);
 router.get('/posts/:id', PostController.findById);
 
@@ -44,7 +44,5 @@ router.put('/posts/update', PostController.update);
 
 // delete:
 router.delete('/posts/delete/:id', PostController.delete);
-
-*/
 
 module.exports = router;
