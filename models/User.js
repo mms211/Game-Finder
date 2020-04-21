@@ -56,6 +56,16 @@ newSchema.pre('findOneAndUpdate', function () {
   this.update({}, { $set: { updatedAt: Date.now() } });
 });
 
+newSchema.methods.isCorrectPassword = function (password, cb) {
+  bcrypt.compare(password, this.password, (err, same) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(err, same);
+    }
+  });
+}
+
 
 
 module.exports = mongoose.model('User', newSchema);

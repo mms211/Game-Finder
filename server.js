@@ -10,6 +10,8 @@ const apiRouter = require('./routes/apiRoutes');
 
 const app = express();
 
+const secret = process.env.JWT_SIGNATURE;
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
