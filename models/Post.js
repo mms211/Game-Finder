@@ -5,17 +5,25 @@ if (mongoose.connection.readyState === 0) {
 }
 
 const newSchema = new Schema({
-  'email': {
+  'postType': {
     type: String,
-    unique: true,
-    lowercase: true,
-    trim: true,
-    required: "Please enter a valid email address",
-    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    required: true
   },
-  'password': {
+  'user': {
     type: String,
-    required: "Please enter your password"
+    required: true
+  },
+  'title': {
+    type: String,
+    required: true
+  },
+  'body': {
+    type: String,
+    required: true
+  },
+  'responses': {
+    type: String,
+    emun: true
   },
   'createdAt': { type: Date, default: Date.now },
   'updatedAt': { type: Date, default: Date.now }
@@ -36,4 +44,4 @@ newSchema.pre('findOneAndUpdate', function () {
 
 
 
-module.exports = mongoose.model('User', newSchema);
+module.exports = mongoose.model('Post', newSchema);
