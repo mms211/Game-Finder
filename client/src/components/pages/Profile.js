@@ -1,10 +1,20 @@
 import React from "react";
+import Post from "../Post";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 function Profile() {
   return (
-    <>
-      <h1>~~ Profile page ~~</h1>
-    </>
+    <Container>
+      <Row className="justify-content-md-center">
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+      </Row>
+    </Container>
   );
 }
 
