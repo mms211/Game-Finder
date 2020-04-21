@@ -1,10 +1,8 @@
 import React from "react";
-
+import CreateForm from "../CreateForm";
 function CreatePost() {
   return (
-    <>
-      <h1>Create a Post</h1>
-    </>
+    <CreateForm />
   );
 }
 
