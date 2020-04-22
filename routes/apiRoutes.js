@@ -33,7 +33,7 @@ router.delete('/users/delete/:id', isAuthorized, UserController.deleteById);
 // ==== post CRUD ====
 
 // create:
-router.post('/posts/add', isAuthorized, PostController.addPost);
+router.post('/posts/add', PostController.addPost);
 
 // read:
 router.get('/posts/all', PostController.findAll);

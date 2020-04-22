@@ -6,13 +6,13 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import "./style.css";
 
-function CreateForm() {
+function CreateForm(props) {
   return (
     <Container>
         <Form>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Title</Form.Label>
-                <Form.Control size="lg" type="text" placeholder="Title your post" />
+                <Form.Control size="lg" type="text" placeholder="Title your post" name="title" onChange={props.handleInputChange}/>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>What game are you playing?</Form.Label>
@@ -20,7 +20,7 @@ function CreateForm() {
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Message:</Form.Label>
-                <Form.Control as="textarea" rows="3" />
+                <Form.Control as="textarea" rows="3" name="body" onChange={props.handleInputChange} />
             </Form.Group>
             <Form.Group>
                 <Form.Label> Post Type: </Form.Label>
@@ -41,7 +41,7 @@ function CreateForm() {
                     </Col>
                 </Row>
             </Form.Group>
-            <Button type="submit">Create Post</Button>
+            <Button type="submit" disabled={props.disabled}onClick={props.handleFormSubmit}>Create Post</Button>
         </Form>
     </Container>
   );
