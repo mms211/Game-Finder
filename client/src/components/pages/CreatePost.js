@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import CreateForm from "../CreateForm";
+
 function CreatePost() {
   
   const [formObject, setFormObject] = useState([])

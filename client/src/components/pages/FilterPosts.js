@@ -1,10 +1,13 @@
 import React from "react";
+import Btn from "../Button";
+import Container from "react-bootstrap/Container";
 
 function FilterPosts() {
   return (
-    <>
-      <h1>~~ Filter your posts ~~</h1>
-    </>
+    <Container>
+      <Btn title="Looking For A Player?" href="/"/>{" "}
+      <Btn title="Looking For Game?" href="/"/>
+    </Container>
   );
 }
 
