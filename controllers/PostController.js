@@ -60,14 +60,6 @@ module.exports = {
     await Post.findOneAndUpdate(
       { _id: body._id },
       {
-        // this function is only built to update whether or not
-        // the movie is seen. But we can update more stuff based
-        // on what we pass in the 'put' body
-        // title: body.title,
-        // director: body.director,
-        // writer: body.writer,
-        // releaseYear: body.releaseYear,
-        // metacriticScore: body.metacriticScore,
         postType: body.postType,
         title: body.title,
         body: body.body,
