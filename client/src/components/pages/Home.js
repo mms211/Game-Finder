@@ -26,7 +26,13 @@ function Home() {
         {posts.length ? (
           <>
             {posts.map((post) => (
-              <Post key={post._id} title={post.title}></Post>
+              <Post
+                key={post._id}
+                title={post.title}
+                username={post.user}
+                body={post.body}
+                postType={post.postType}
+              ></Post>
             ))}
           </>
         ) : (

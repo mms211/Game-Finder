@@ -12,31 +12,29 @@ function CreateForm(props) {
         <Form>
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Title</Form.Label>
-                <Form.Control size="lg" type="text" placeholder="Title your post" name="title" onChange={props.handleInputChange}/>
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>What game are you playing?</Form.Label>
-                <Form.Control type="text" placeholder="Name of game" />
+                <Form.Control size="lg" type="text" placeholder="Title your post" name="title" onChange={props.handleInputChange} required/>
             </Form.Group>
             <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Message:</Form.Label>
-                <Form.Control as="textarea" rows="3" name="body" onChange={props.handleInputChange} />
+                <Form.Control as="textarea" rows="3" name="body" onChange={props.handleInputChange} required />
             </Form.Group>
             <Form.Group>
                 <Form.Label> Post Type: </Form.Label>
                 <Row>
-                    <Col sm={10}>
+                    <Col sm={10} onChange={props.handleInputChange}>
                     <Form.Check
                         type="radio"
                         label="Looking for a player"
-                        name="formHorizontalRadios"
+                        name="postType"
                         id="formHorizontalRadios1"
+                        value="Looking for a player"
                     />
                     <Form.Check
                         type="radio"
                         label="Looking for a game"
-                        name="formHorizontalRadios"
+                        name="postType"
                         id="formHorizontalRadios2"
+                        value="Looking for a Game"
                     />
                     </Col>
                 </Row>
