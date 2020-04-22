@@ -14,7 +14,7 @@ function Home() {
   function loadPosts() {
     API.getAllPosts()
     .then(res => {
-      setPosts(res.data)
+      setPosts(res.data.data)
     })
     .catch(err => console.log(err));
 };
@@ -26,7 +26,7 @@ function Home() {
       <Row className="justify-content-md-center">
         {posts.map((post) => (
               <Post key={post._id} title={post.title}></Post>
-            ))}
+              ))}
         </Row>
         ) : (
           <h3>No Results to Display</h3>
