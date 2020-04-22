@@ -13,24 +13,26 @@ function Home() {
 
   function loadPosts() {
     API.getAllPosts()
-    .then(res => {
-      setPosts(res.data.data)
-    })
-    .catch(err => console.log(err));
-};
+      .then((res) => {
+        setPosts(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <Container>
       {console.log(posts.data)}
-        {posts.length ? (
       <Row className="justify-content-md-center">
-        {posts.map((post) => (
+        {posts.length ? (
+          <>
+            {posts.map((post) => (
               <Post key={post._id} title={post.title}></Post>
-              ))}
-        </Row>
+            ))}
+          </>
         ) : (
           <h3>No Results to Display</h3>
         )}
+      </Row>
     </Container>
   );
 }
