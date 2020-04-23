@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const secret = process.env.JWT_SIGNATURE;
 
 const authenticate = (req, res) => {
   const { email, password } = req.body;
