@@ -19,7 +19,10 @@ function Authentication() {
   function onSubmit(event) {
     event.preventDefault();
     axios.post('/api/users/add', authObject)
-      .then(() => history.push("/"));
+      .then(() => {
+        axios.post('/api/authenticate', authObject);
+        history.push("/");
+      });
   }
 
   return (
