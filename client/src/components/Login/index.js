@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 function Login(props) {
-  console.log(props);
   return (
     <Form>
       <Form.Group controlId="formBasicEmail">
