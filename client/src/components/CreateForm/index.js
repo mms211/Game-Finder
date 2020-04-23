@@ -39,7 +39,7 @@ function CreateForm(props) {
                     </Col>
                 </Row>
             </Form.Group>
-            <Button type="submit" disabled={props.disabled}onClick={props.handleFormSubmit}>Create Post</Button>
+            <Button type="submit" disabled={props.disabled} onClick={props.handleFormSubmit}>Create Post</Button>
         </Form>
     </Container>
   );
