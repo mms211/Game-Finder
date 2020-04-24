@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import CreateForm from "../CreateForm";
-// import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-function CreatePost() {
+const CreatePost = () => {
   const [formObject, setFormObject] = useState([]);
-  // let postCreated = true;
+  const history = useHistory();
 
-
-  // function navigateToHomePage() {
-  //   if (postCreated) {
-  //     return <Redirect to="/" />
-  //   }
-  // }
-
-  function handleInputChange(event) {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
   }
 
-  function handleFormSubmit(event) {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     API.savePost({
       postType: formObject.postType,
@@ -27,6 +20,7 @@ function CreatePost() {
       title: formObject.title,
       body: formObject.body,
     })
+    .then(() => history.push("/"))
     .catch((err) => console.log(err));
   }
 

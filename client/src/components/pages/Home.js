@@ -2,37 +2,51 @@ import React, { useState, useEffect } from "react";
 import Post from "../Post";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import API from "../../utils/API";
+import Btn from "../Button";
 
-function Home() {
+const Home = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     loadPosts();
   }, []);
 
-  function loadPosts() {
+  const loadPosts = () => {
     API.getAllPosts()
       .then((res) => {
         setPosts(res.data.data);
       })
       .catch((err) => console.log(err));
-  }
+  };
+
+  const deletePost = (id) => {
+    API.deletePost(id)
+      .then((res) => loadPosts())
+      .catch((err) => console.log(err));
+  };
 
   return (
     <Container>
-      {console.log(posts.data)}
       <Row className="justify-content-md-center">
         {posts.length ? (
           <>
             {posts.map((post) => (
-              <Post
-                key={post._id}
-                title={post.title}
-                username={post.user}
-                body={post.body}
-                postType={post.postType}
-              ></Post>
+              <div key={post._id}>
+                <Post
+                  title={post.title}
+                  username={post.user}
+                  body={post.body}
+                  postType={post.postType}
+                ></Post>
+                <Col>
+                  <Btn
+                    title="Delete Post"
+                    onClick={() => deletePost(post._id)}
+                  ></Btn>
+                </Col>
+              </div>
             ))}
           </>
         ) : (
@@ -41,6 +55,6 @@ function Home() {
       </Row>
     </Container>
   );
-}
+};
 
 export default Home;

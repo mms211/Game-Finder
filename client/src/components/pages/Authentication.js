@@ -4,19 +4,19 @@ import axios from 'axios';
 import Login from "../Login";
 import Btn from "../Button";
 
-function Authentication() {
+const Authentication = () => {
   const [authObject, setAuthObject] = useState({
     email: "",
     password: "",
   });
   const history = useHistory();
 
-  function handleInputChange(event) {
+  const handleInputChange = (event) => {
     const { value, name } = event.target;
     setAuthObject({ ...authObject, [name]: value });
   }
 
-  function onSubmit(event) {
+  const onSubmit = (event) => {
     event.preventDefault();
     axios.post('/api/users/add', authObject)
       .then(() => {

@@ -3,15 +3,10 @@ import Post from "../Post";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-function Profile() {
+const Profile = () => {
   return (
     <Container>
       <Row className="justify-content-md-center">
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
         <Post />
       </Row>
     </Container>

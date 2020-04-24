@@ -13,8 +13,6 @@ function Post(props) {
           </Card.Subtitle>
           <Card.Subtitle className="mb-2">{props.postType}</Card.Subtitle>
           <Card.Text>{props.body}</Card.Text>
-          <Card.Link href="#">Game Title</Card.Link>
-          <Card.Link href="#">Join Game!</Card.Link>
         </Card.Body>
       </Card>
     </>
