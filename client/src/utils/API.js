@@ -7,6 +7,8 @@ export default {
   },
   savePost: function(postData) {
     return axios.post("/api/posts/add", postData);
+  },
+  deletePost: function(id) {
+    return axios.delete("/api/posts/delete/" + id);
   }
-  
 };
