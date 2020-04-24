@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Btn from "../Button";
 import "./style.css";
 
 function Post(props) {
@@ -14,7 +13,6 @@ function Post(props) {
           </Card.Subtitle>
           <Card.Subtitle className="mb-2">{props.postType}</Card.Subtitle>
           <Card.Text>{props.body}</Card.Text>
-          <Btn onClick={console.log("delete")} title="Delete"></Btn>
         </Card.Body>
       </Card>
     </>
