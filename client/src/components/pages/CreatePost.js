@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import CreateForm from "../CreateForm";
-// import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function CreatePost() {
   const [formObject, setFormObject] = useState([]);
-  // let postCreated = true;
-
-
-  // function navigateToHomePage() {
-  //   if (postCreated) {
-  //     return <Redirect to="/" />
-  //   }
-  // }
+  const history = useHistory();
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -27,6 +20,7 @@ function CreatePost() {
       title: formObject.title,
       body: formObject.body,
     })
+    .then(() => history.push("/"))
     .catch((err) => console.log(err));
   }
 
