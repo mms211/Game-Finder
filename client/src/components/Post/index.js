@@ -8,7 +8,7 @@ function Post(props) {
   const dateToFormat = props.createdAt
   return (
     <>
-      <Card className="text-center">
+      <Card className="text-center post-wrapper" border="secondary">
         <Card.Header>
           {props.username}{" "}
           <Moment fromNow ago>{dateToFormat}</Moment>
@@ -22,7 +22,7 @@ function Post(props) {
           <Card.Text>{props.body}</Card.Text>
         </Card.Body>
         <Card.Footer>
-          <Btn variant="dark" title={"Delete"} onClick={props.onClick}></Btn>
+          <Btn variant="dark" title={"Delete Post"} onClick={props.onClick}></Btn>
         </Card.Footer>
       </Card>
     </>
