@@ -3,16 +3,16 @@ import API from "../../utils/API";
 import CreateForm from "../CreateForm";
 import { useHistory } from 'react-router-dom';
 
-function CreatePost() {
+const CreatePost = () => {
   const [formObject, setFormObject] = useState([]);
   const history = useHistory();
 
-  function handleInputChange(event) {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
   }
 
-  function handleFormSubmit(event) {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     API.savePost({
       postType: formObject.postType,

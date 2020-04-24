@@ -1,6 +1,6 @@
 import React from "react";
 
-function NoMatch() {
+const NoMatch= () => {
   return (
     <>
     <h3> Sorry, can't find that page</h3>

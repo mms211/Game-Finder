@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import Login from "../Login";
 import Btn from "../Button";
 
-function Authentication() {
+const Authentication = () => {
   const [authObject, setAuthObject] = useState({
     email: "",
     password: "",
   });
 
-  function handleInputChange(event) {
+  const handleInputChange = (event) => {
     const { value, name } = event.target;
     setAuthObject({ ...authObject, [name]: value });
   }
 
-  function onSubmit(event) {
+  const onSubmit = (event) => {
     event.preventDefault();
     console.log("email:", authObject.email, "password:", authObject.password);
   }

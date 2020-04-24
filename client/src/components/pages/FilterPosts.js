@@ -2,7 +2,7 @@ import React from "react";
 import Btn from "../Button";
 import Container from "react-bootstrap/Container";
 
-function FilterPosts() {
+const FilterPosts = () => {
   return (
     <Container>
       <Btn title="Looking For A Player?" href="/"/>{" "}
