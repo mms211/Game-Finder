@@ -2,13 +2,17 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Btn from "../Button";
 import "./style.css";
+import Moment from 'react-moment';
 
 function Post(props) {
+  const dateToFormat = props.createdAt
   return (
     <>
       <Card className="text-center">
         <Card.Header>
-          {props.username} {props.createdAt}
+          {props.username}{" "}
+          <Moment fromNow ago>{dateToFormat}</Moment>
+          {" "}ago 
         </Card.Header>
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
