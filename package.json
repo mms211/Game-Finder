@@ -22,9 +22,11 @@
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.9.9",
     "morgan": "^1.9.1",
     "react-bootstrap": "^1.0.0",
+    "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
