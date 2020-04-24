@@ -6,6 +6,7 @@ import NoMatch from "./components/pages/NoMatch";
 import Profile from "./components/pages/Profile";
 import Create from "./components/pages/CreatePost";
 import Filter from "./components/pages/FilterPosts";
+import Authentication from "./components/pages/Authentication";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         <Switch>
           <Route exact path={["/"]}>
             <Home />
+          </Route>
+          <Route exact path={["/signup"]}>
+            <Authentication />
           </Route>
           <Route exact path={["/profile"]}>
             <Profile />

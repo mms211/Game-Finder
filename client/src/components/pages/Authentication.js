@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import Login from "../Login";
 import Btn from "../Button";
 
@@ -7,6 +9,7 @@ function Authentication() {
     email: "",
     password: "",
   });
+  const history = useHistory();
 
   function handleInputChange(event) {
     const { value, name } = event.target;
@@ -15,13 +18,17 @@ function Authentication() {
 
   function onSubmit(event) {
     event.preventDefault();
-    console.log("email:", authObject.email, "password:", authObject.password);
+    axios.post('/api/users/add', authObject)
+      .then(() => {
+        axios.post('/api/authenticate', authObject);
+        history.push("/");
+      });
   }
 
   return (
     <>
       <Login onSubmit={onSubmit} handleInputChange={handleInputChange} />
-      <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")}/>
+      <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")} />
     </>
   );
 }
