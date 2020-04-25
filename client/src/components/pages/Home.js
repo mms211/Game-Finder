@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Post from "../Post";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import API from "../../utils/API";
-import Btn from "../Button";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -39,13 +37,9 @@ const Home = () => {
                   username={post.user}
                   body={post.body}
                   postType={post.postType}
+                  createdAt={post.createdAt}
+                  onClick={() => deletePost(post._id)}
                 ></Post>
-                <Col>
-                  <Btn
-                    title="Delete Post"
-                    onClick={() => deletePost(post._id)}
-                  ></Btn>
-                </Col>
               </div>
             ))}
           </>
