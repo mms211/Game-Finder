@@ -13,9 +13,12 @@ const GameSearchForm = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(search);
     setSearchState("working");
-    // make api search for games
+    const url = `https://www.boardgameatlas.com/api/search?name=${search}&client_id=`;
+    API.boardGameAtlasSearch(url)
+      .then((res) => {
+        console.log(res);
+      })
   }
 
   return (
