@@ -10,5 +10,8 @@ export default {
   },
   deletePost: function(id) {
     return axios.delete("/api/posts/delete/" + id);
+  },
+  boardGameAtlasSearch: (url) => {
+    return axios.put('/api/search', { url: url });
   }
 };

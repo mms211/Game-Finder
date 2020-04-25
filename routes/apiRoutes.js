@@ -49,4 +49,14 @@ router.delete('/posts/delete/:id', isAuthorized, PostController.deleteById);
 
 router.post('/authenticate', authenticate);
 
+// ======== BOARD GAME ATLAS ========
+router.put('/search', (req, res) => {
+  const { url } = req.body;
+  axios.get(url + process.env.BGA_CLIENT_ID)
+    .then(result => {
+      res.json(result.data.items);
+    })
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
