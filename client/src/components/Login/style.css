@@ -5,6 +5,6 @@
 }
 
 .loginContainer {
-    height: 100vh;
+    height: calc(100vh - 106px);
     background-color: navy;
 }
