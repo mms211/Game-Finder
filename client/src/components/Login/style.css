@@ -1,0 +1,10 @@
+.loginCard {
+    margin-left: 30%;
+    margin-right: 30%;
+    top: 25%;
+}
+
+.loginContainer {
+    height: 100vh;
+    background-color: navy;
+}
