@@ -1,14 +1,10 @@
-// Login.jsx
 import React, { useEffect, useState } from "react";
-import { Route, Redirect, useHistory } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import API from "../../utils/API";
 
 function PrivateRoute({ children, ...rest }) {
   const [redirect, setRedirect] = useState(false);
   const [loading, setLoading] = useState(true);
-
-  ///might not need
-  const history = useHistory();
 
   useEffect(() => {
     return checkTokens();
@@ -17,7 +13,6 @@ function PrivateRoute({ children, ...rest }) {
   const checkTokens = () => {
     API.checkTokens()
       .then((res) => {
-        console.log("API res:", res);
         if (res.status === 200) {
           setLoading(false);
         } else {
@@ -26,7 +21,7 @@ function PrivateRoute({ children, ...rest }) {
         }
       })
       .catch((err) => {
-        console.error("redirect error", err);
+        console.error(err);
         setRedirect(true);
         setLoading(false);
       });
@@ -36,12 +31,7 @@ function PrivateRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={() =>
-        loading
-          ? console.log("loading", loading)
-          : !redirect
-          ? (console.log("redirect should be false", redirect), children)
-          : (console.log("redirect should be true", redirect),
-            (<Redirect to="/auth" />))
+        loading ? null : !redirect ? children : <Redirect to="/auth" />
       }
     />
   );
