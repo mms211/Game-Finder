@@ -13,7 +13,7 @@
 .jumbo {
     background-color: navy !important;
     margin-bottom: 0px !important;
-    padding: 0px !important;
+    padding: 15px 0px 0px 0px !important;
     text-align: center;
     height: 100px;
 }
