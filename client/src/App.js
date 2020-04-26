@@ -7,6 +7,7 @@ import Profile from "./components/pages/Profile";
 import Create from "./components/pages/CreatePost";
 import Filter from "./components/pages/FilterPosts";
 import Authentication from "./components/pages/Authentication";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
       <div>
         <NavBar />
         <Switch>
-          <Route exact path={["/"]}>
-            <Home />
-          </Route>
-          <Route exact path={["/signup"]}>
+          <PrivateRoute path="/">
+              <Home />
+          </PrivateRoute>
+          <Route exact path={["/auth"]}>
             <Authentication />
           </Route>
           <Route exact path={["/profile"]}>
