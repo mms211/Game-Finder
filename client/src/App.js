@@ -15,24 +15,24 @@ function App() {
       <div>
         <NavBar />
         <Switch>
-          <PrivateRoute path="/">
-              <Home />
-          </PrivateRoute>
-          <Route exact path={["/auth"]}>
+          <Route exact path="/auth">
             <Authentication />
           </Route>
-          <Route exact path={["/profile"]}>
-            <Profile />
-          </Route>
-          <Route exact path={["/create"]}>
-            <Create />
-          </Route>
-          <Route exact path={["/filter"]}>
-            <Filter />
-          </Route>
-          <Route>
-            <NoMatch />
-          </Route>
+          <PrivateRoute exact path="/">
+              <Home />
+          </PrivateRoute>
+          <PrivateRoute exact path="/profile">
+              <Profile />
+          </PrivateRoute>
+          <PrivateRoute exact path="/create">
+              <Create />
+          </PrivateRoute>
+          <PrivateRoute exact path="/filter">
+              <Filter />
+          </PrivateRoute>
+          <PrivateRoute>
+              <NoMatch />
+          </PrivateRoute>
         </Switch>
       </div>
     </Router>
