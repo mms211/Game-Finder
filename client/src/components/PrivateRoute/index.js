@@ -40,10 +40,8 @@ function PrivateRoute({ children, ...rest }) {
           ? console.log("loading", loading)
           : !redirect
           ? (console.log("redirect should be false", redirect), children)
-          : redirect
-          ? (console.log("redirect should be true", redirect),
+          : (console.log("redirect should be true", redirect),
             (<Redirect to="/auth" />))
-          : console.log("y tho")
       }
     />
   );
