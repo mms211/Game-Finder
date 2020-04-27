@@ -51,11 +51,15 @@ router.delete('/posts/delete/:id', isAuthorized, PostController.deleteById);
 router.post('/authenticate', authenticate);
 
 // ======== BOARD GAME ATLAS ========
+
 router.put('/search', (req, res) => {
-  const { url } = req.body;
-  axios.get(url + process.env.BGA_CLIENT_ID)
+  let { url } = req.body;
+  url += '&limit=10&client_id=';
+  url += process.env.BGA_CLIENT_ID;
+  axios.get(url)
     .then(result => {
-      res.json(result.data.items);
+      res.json(result.data.games);
+      console.log(result.data.games);
     })
     .catch(err => console.log(err));
 });
