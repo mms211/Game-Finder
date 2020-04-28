@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import Login from "../Login";
-import Btn from "../Button";
+import Login from "../../Login";
+import Btn from "../../Button";
+import Navbar from "react-bootstrap/Navbar";
+import "./Authentication.css";
 
 const Authentication = () => {
   const [authObject, setAuthObject] = useState({
@@ -28,7 +30,9 @@ const Authentication = () => {
   return (
     <>
       <Login onSubmit={onSubmit} handleInputChange={handleInputChange} />
-      <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")} />
+      <Navbar sticky="bottom" className="footer">
+        <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")} />
+      </Navbar>
     </>
   );
 }
