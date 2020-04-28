@@ -14,15 +14,18 @@ const Authentication = () => {
   const handleInputChange = (event) => {
     const { value, name } = event.target;
     setAuthObject({ ...authObject, [name]: value });
+    // console.log(authObject);
   }
 
   const onSubmit = (event) => {
     event.preventDefault();
     axios.post('/api/users/add', authObject)
-      .then(() => {
+      .then((result) => {
+        console.log(result);
         axios.post('/api/authenticate', authObject);
         history.push("/");
       });
+    // console.log(event.target);
   }
 
   return (

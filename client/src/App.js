@@ -9,6 +9,9 @@ import Filter from "./components/pages/FilterPosts";
 import Authentication from "./components/pages/Authentication";
 import PrivateRoute from "./components/PrivateRoute";
 
+//dummy login page
+import BundtCake from "./components/BundtCake";
+
 function App() {
   return (
     <Router>
@@ -18,20 +21,23 @@ function App() {
           <Route exact path="/auth">
             <Authentication />
           </Route>
+          <Route exact path="/login">
+            <BundtCake />
+          </Route>
           <PrivateRoute exact path="/">
-              <Home />
+            <Home />
           </PrivateRoute>
           <PrivateRoute exact path="/profile">
-              <Profile />
+            <Profile />
           </PrivateRoute>
           <PrivateRoute exact path="/create">
-              <Create />
+            <Create />
           </PrivateRoute>
           <PrivateRoute exact path="/filter">
-              <Filter />
+            <Filter />
           </PrivateRoute>
           <PrivateRoute>
-              <NoMatch />
+            <NoMatch />
           </PrivateRoute>
         </Switch>
       </div>
