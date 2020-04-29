@@ -6,11 +6,18 @@ import Btn from "../../Button";
 import Navbar from "react-bootstrap/Navbar";
 import "./Authentication.css";
 
+import UserContext from '../../../utils/UserContext';
+
 const Authentication = () => {
   const [authObject, setAuthObject] = useState({
     email: "",
     password: "",
   });
+  /* 
+    Add state to the application so jsx doesn't break while
+    trying to render things that aren't defined yet.
+  */
+  const [authState, setAuthState] = useState("ready");
   const history = useHistory();
 
   const handleInputChange = (event) => {
@@ -20,20 +27,22 @@ const Authentication = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    setAuthObject("loading...");
     axios.post('/api/users/add', authObject)
-      .then(() => {
+      .then((result) => {
         axios.post('/api/authenticate', authObject);
+        setAuthState("resolved");
         history.push("/");
       });
   }
 
   return (
-    <>
+    <UserContext.Provider value={authObject}>
       <Login onSubmit={onSubmit} handleInputChange={handleInputChange} />
       <Navbar sticky="bottom" className="footer">
         <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")} />
       </Navbar>
-    </>
+    </UserContext.Provider>
   );
 }
 export default Authentication;
