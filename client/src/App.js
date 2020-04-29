@@ -6,11 +6,9 @@ import NoMatch from "./components/pages/NoMatch";
 import Profile from "./components/pages/Profile";
 import Create from "./components/pages/CreatePost";
 import Filter from "./components/pages/FilterPosts";
-import Authentication from "./components/pages/Authentication";
 import PrivateRoute from "./components/PrivateRoute";
-
-//dummy login page
 import BundtCake from "./components/BundtCake";
+import Authentication from "./components/pages/Authentication/Authentication";
 
 function App() {
   return (
