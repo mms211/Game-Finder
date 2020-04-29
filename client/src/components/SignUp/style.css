@@ -1,0 +1,10 @@
+.signUpCard {
+    margin-left: 30%;
+    margin-right: 30%;
+    top: 20%;
+}
+
+.signUpContainer {
+    height: calc(100vh - 210px);
+    background-color: navy;
+}

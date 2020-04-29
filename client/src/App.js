@@ -7,7 +7,7 @@ import Profile from "./components/pages/Profile";
 import Create from "./components/pages/CreatePost";
 import Filter from "./components/pages/FilterPosts";
 import PrivateRoute from "./components/PrivateRoute";
-import BundtCake from "./components/BundtCake";
+import Login from "./components/Login";
 import Authentication from "./components/pages/Authentication/Authentication";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
             <Authentication />
           </Route>
           <Route exact path="/login">
-            <BundtCake />
+            <Login />
           </Route>
           <PrivateRoute exact path="/">
             <Home />
