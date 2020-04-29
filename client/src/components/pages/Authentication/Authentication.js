@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import Login from "../../Login";
+import SignUp from "../../SignUp";
 import Btn from "../../Button";
 import Navbar from "react-bootstrap/Navbar";
 import "./Authentication.css";
@@ -21,7 +21,8 @@ const Authentication = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     axios.post('/api/users/add', authObject)
-      .then(() => {
+      .then((result) => {
+        console.log(result);
         axios.post('/api/authenticate', authObject);
         history.push("/");
       });
@@ -29,9 +30,9 @@ const Authentication = () => {
 
   return (
     <>
-      <Login onSubmit={onSubmit} handleInputChange={handleInputChange} />
+      <SignUp onSubmit={onSubmit} handleInputChange={handleInputChange} />
       <Navbar sticky="bottom" className="footer">
-        <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")} />
+        <Btn title={"Already have an account?"} href="/login" />
       </Navbar>
     </>
   );

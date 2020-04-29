@@ -6,6 +6,8 @@ import NoMatch from "./components/pages/NoMatch";
 import Profile from "./components/pages/Profile";
 import Create from "./components/pages/CreatePost";
 import Filter from "./components/pages/FilterPosts";
+import PrivateRoute from "./components/PrivateRoute";
+import Login from "./components/Login";
 import Authentication from "./components/pages/Authentication/Authentication";
 
 function App() {
@@ -14,24 +16,27 @@ function App() {
       <div>
         <NavBar />
         <Switch>
-          <Route exact path={["/"]}>
-            <Home />
-          </Route>
-          <Route exact path={["/signup"]}>
+          <Route exact path="/signup">
             <Authentication />
           </Route>
-          <Route exact path={["/profile"]}>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <PrivateRoute exact path="/">
+            <Home />
+          </PrivateRoute>
+          <PrivateRoute exact path="/profile">
             <Profile />
-          </Route>
-          <Route exact path={["/create"]}>
+          </PrivateRoute>
+          <PrivateRoute exact path="/create">
             <Create />
-          </Route>
-          <Route exact path={["/filter"]}>
+          </PrivateRoute>
+          <PrivateRoute exact path="/filter">
             <Filter />
-          </Route>
-          <Route>
+          </PrivateRoute>
+          <PrivateRoute>
             <NoMatch />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </div>
     </Router>

@@ -50,6 +50,11 @@ router.delete('/posts/delete/:id', isAuthorized, PostController.deleteById);
 
 router.post('/authenticate', authenticate);
 
+router.get('/checkToken', isAuthorized, function(req, res) {
+  console.log(res)
+  res.sendStatus(200);
+});
+
 // ======== BOARD GAME ATLAS ========
 router.put('/search', (req, res) => {
   const { url } = req.body;
