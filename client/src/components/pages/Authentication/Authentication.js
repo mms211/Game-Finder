@@ -16,7 +16,6 @@ const Authentication = () => {
   const handleInputChange = (event) => {
     const { value, name } = event.target;
     setAuthObject({ ...authObject, [name]: value });
-    // console.log(authObject);
   }
 
   const onSubmit = (event) => {
@@ -27,14 +26,13 @@ const Authentication = () => {
         axios.post('/api/authenticate', authObject);
         history.push("/");
       });
-    // console.log(event.target);
   }
 
   return (
     <>
       <Login onSubmit={onSubmit} handleInputChange={handleInputChange} />
       <Navbar sticky="bottom" className="footer">
-        <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")} />
+        <Btn title={"Already have an account?"} href="/login" />
       </Navbar>
     </>
   );

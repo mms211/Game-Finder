@@ -16,7 +16,7 @@ function App() {
       <div>
         <NavBar />
         <Switch>
-          <Route exact path="/auth">
+          <Route exact path="/signup">
             <Authentication />
           </Route>
           <Route exact path="/login">

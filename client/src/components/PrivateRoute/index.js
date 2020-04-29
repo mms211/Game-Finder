@@ -31,7 +31,7 @@ function PrivateRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={() =>
-        loading ? null : !redirect ? children : <Redirect to="/auth" />
+        loading ? null : !redirect ? children : <Redirect to="/signup" />
       }
     />
   );

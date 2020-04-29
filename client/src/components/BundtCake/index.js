@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
@@ -13,18 +13,16 @@ const BundtCake = () => {
   });
 
   const handleInputChange = (event) => {
-    // console.log(login);
     const { value, name } = event.target;
     setLogin({ ...login, [name]: value });
   }
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // console.log(login.password);
     axios.post('/api/authenticate', login)
-      .then(() => {
-        // console.log(res);
-        history.push('/profile');
+      .then((response) => {
+        console.log(response);
+        history.push('/');
       })
       .catch(err => console.log(err));
   }
