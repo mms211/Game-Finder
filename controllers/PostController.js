@@ -28,7 +28,7 @@ module.exports = {
   },
   // ======== READ: ========
   findAll: async (req, res) => {
-    await Post.find({}).sort({createdAt: -1}).exec((err, posts) => {
+    await Post.find({}).sort({ createdAt: -1 }).exec((err, posts) => {
       if (err) {
         return res.status(400).json({ success: false, error: err });
       }
