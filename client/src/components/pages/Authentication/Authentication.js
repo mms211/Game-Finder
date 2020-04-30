@@ -6,9 +6,13 @@ import Btn from "../../Button";
 import Navbar from "react-bootstrap/Navbar";
 import "./Authentication.css";
 
-import UserContext from '../../../utils/UserContext';
+// import UserContext from '../../../utils/UserContext';
 
-const Authentication = () => {
+const Authentication = (props) => {
+
+  // console.log(props);
+  // expect: setUser function
+
   const [authObject, setAuthObject] = useState({
     email: "",
     password: "",
@@ -23,7 +27,6 @@ const Authentication = () => {
   const handleInputChange = (event) => {
     const { value, name } = event.target;
     setAuthObject({ ...authObject, [name]: value });
-    // console.log(authObject);
   }
 
   const onSubmit = (event) => {
@@ -31,21 +34,24 @@ const Authentication = () => {
     setAuthObject("loading...");
     axios.post('/api/users/add', authObject)
       .then((result) => {
-        console.log(result);
-        axios.post('/api/authenticate', authObject);
+        axios.post('/api/authenticate', authObject)
+          .then(result => {
+            props.setUser({ email: authObject.email });
+            history.push("/");
+          })
+          .catch(err => console.log(err));
         setAuthState("resolved");
-        history.push("/");
-      });
-    // console.log(event.target);
+      })
+      .catch(err => console.log(err));
   }
 
   return (
-    <UserContext.Provider value={authObject}>
+    <div>
       <Login onSubmit={onSubmit} handleInputChange={handleInputChange} />
       <Navbar sticky="bottom" className="footer">
         <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")} />
       </Navbar>
-    </UserContext.Provider>
+    </div>
   );
 }
 export default Authentication;

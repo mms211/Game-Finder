@@ -13,6 +13,7 @@ function PrivateRoute({ children, ...rest }) {
   const checkTokens = () => {
     API.checkTokens()
       .then((res) => {
+        console.log(res);
         if (res.status === 200) {
           setLoading(false);
         } else {

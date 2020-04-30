@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import UserContext from "../../utils/UserContext"
 import { useHistory } from 'react-router-dom';
 
 
-const BundtCake = () => {
+const BundtCake = (props) => {
   const history = useHistory();
   const [login, setLogin] = useState({
     email: "",
@@ -24,6 +25,7 @@ const BundtCake = () => {
     axios.post('/api/authenticate', login)
       .then(() => {
         // console.log(res);
+        props.setUser({ email: login.email });
         history.push('/profile');
       })
       .catch(err => console.log(err));
