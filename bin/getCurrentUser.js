@@ -11,9 +11,7 @@ const getCurrentUser = (req, res) => {
         res.status(401).send('Unauthorized: Invalid token');
       } else {
         req.email = decoded.email;
-        console.log(req.email);
-        res.json({ email: req.email });
-        // now find a way to access this from whomever called the route!
+        res.json({ userData: decoded });
       }
     });
   }

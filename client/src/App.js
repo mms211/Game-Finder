@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import API from "./utils/API";
 import NavBar from "./components/NavBar";
 import Home from "./components/pages/Home";
 import NoMatch from "./components/pages/NoMatch";
@@ -13,8 +14,16 @@ import UserContext from "./utils/UserContext";
 
 const App = () => {
 
+  const [userState, setUserState] = useState("ready");
   const [user, setUser] = useState({
-    email: "kevin"
+    id: "",
+    email: ""
+  });
+
+  useEffect(() => {
+    setUserState("loading...");
+    API.getCurrentUser()
+      .then(result => console.log(result.data.userData));
   });
 
   return (
