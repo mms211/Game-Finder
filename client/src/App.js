@@ -6,13 +6,9 @@ import NoMatch from "./components/pages/NoMatch";
 import Profile from "./components/pages/Profile";
 import Create from "./components/pages/CreatePost";
 import Filter from "./components/pages/FilterPosts";
-import Authentication from "./components/pages/Authentication/Authentication";
 import PrivateRoute from "./components/PrivateRoute";
-
-import UserContext from "./utils/UserContext";
-
-//dummy login page
-import BundtCake from "./components/BundtCake";
+import Login from "./components/Login";
+import Authentication from "./components/pages/Authentication/Authentication";
 
 const App = () => {
 
@@ -20,16 +16,16 @@ const App = () => {
     email: "kevin"
   });
 
-  console.log(user);
-
   return (
     <UserContext.Provider value={user}>
       <Router>
         <NavBar />
         <Switch>
-          <Route exact path="/auth">
-            {/* pass in setUser to Authentication */}
-            <Authentication setUser={setUser} />
+          <Route exact path="/signup">
+            <Authentication />
+          </Route>
+          <Route exact path="/login">
+            <Login />
           </Route>
           {/* <Route exact path="/login">
             <BundtCake setUser={setUser} />

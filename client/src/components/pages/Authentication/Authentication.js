@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import Login from "../../Login";
+import SignUp from "../../SignUp";
 import Btn from "../../Button";
 import Navbar from "react-bootstrap/Navbar";
 import "./Authentication.css";
@@ -34,24 +34,19 @@ const Authentication = (props) => {
     setAuthObject("loading...");
     axios.post('/api/users/add', authObject)
       .then((result) => {
-        axios.post('/api/authenticate', authObject)
-          .then(result => {
-            props.setUser({ email: authObject.email });
-            history.push("/");
-          })
-          .catch(err => console.log(err));
-        setAuthState("resolved");
-      })
-      .catch(err => console.log(err));
+        console.log(result);
+        axios.post('/api/authenticate', authObject);
+        history.push("/");
+      });
   }
 
   return (
-    <div>
-      <Login onSubmit={onSubmit} handleInputChange={handleInputChange} />
+    <>
+      <SignUp onSubmit={onSubmit} handleInputChange={handleInputChange} />
       <Navbar sticky="bottom" className="footer">
-        <Btn title={"Already have an account?"} onClick={() => console.log("switch to login")} />
+        <Btn title={"Already have an account?"} href="/login" />
       </Navbar>
-    </div>
+    </>
   );
 }
 export default Authentication;
