@@ -9,6 +9,7 @@ import Filter from "./components/pages/FilterPosts";
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
 import Authentication from "./components/pages/Authentication/Authentication";
+import UserContext from "./utils/UserContext";
 
 const App = () => {
 

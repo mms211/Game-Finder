@@ -5,6 +5,7 @@ const UserController = require('../controllers/UserController.js');
 const PostController = require('../controllers/PostController.js');
 const authenticate = require('../controllers/Authentication.js');
 const isAuthorized = require('../bin/isAuthorized');
+const getCurrentUser = require('../bin/getCurrentUser');
 
 // root directory == "/api/"
 
@@ -24,6 +25,11 @@ router.post('/users/add', UserController.addUser);
 // read:
 router.get('/users/all', isAuthorized, UserController.findAll);
 router.get('/users/find/:id', isAuthorized, UserController.findById);
+/*
+ * Get Current User (in development): 
+ */
+router.get('/users/current', getCurrentUser)
+
 
 // update:
 router.put('/users/update', isAuthorized, UserController.updateUser);
