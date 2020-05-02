@@ -28,13 +28,14 @@ const CommentList = () => {
   };
 
   const submitComment = (event) => {
-    event.preventDefault();
-    console.log("LOOK HERE", commentObject)
+    event.preventDefault(); 
+    const { author, body } = commentObject;
+    if (!author || !body) return;
+    
     API.saveComment({
       username: email,
-      body: commentObject.body,
+      body: body,
     })
-    .then((res) => console.log(res.data))
     .catch((err) => console.log(err));
   };
 
