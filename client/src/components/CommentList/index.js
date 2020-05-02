@@ -36,10 +36,8 @@ const CommentList = (props) => {
     API.saveComment({
       username: email,
       body: body,
-      postId: props.postId
-    })
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+      postId: props.postId,
+    }).catch((err) => console.log(err));
   };
 
   const handleInputChange = (event) => {
