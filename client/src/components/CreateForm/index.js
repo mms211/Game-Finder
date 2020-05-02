@@ -9,7 +9,8 @@ import "./style.css";
 
 function CreateForm(props) {
   return (
-    <Container>
+    <div className="createForm">
+    <Container className="contForm">
       <Form>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>Title</Form.Label>
@@ -44,6 +45,7 @@ function CreateForm(props) {
         <Button type="submit" disabled={props.disabled} onClick={props.handleFormSubmit}>Create Post</Button>
       </Form>
     </Container>
+    </div>
   );
 }
 
