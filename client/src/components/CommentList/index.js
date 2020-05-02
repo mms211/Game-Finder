@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import CommentForm from "../CommentForm";
 import Comment from "../Comment";
+import UserContext from "../../utils/UserContext";
 
 const CommentList = (props) => {
+  const { email } = useContext(UserContext);
   const [show, setShow] = useState(false);
   const [commentObject, setCommentObject] = useState({
-    author: "",
+    author: email,
     text: "",
   });
 
