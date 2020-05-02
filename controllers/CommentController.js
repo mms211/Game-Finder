@@ -1,69 +1,68 @@
-const Post = require('../models/Post');
+const Comment = require('../models/Comment');
 
 module.exports = {
   // ======== CREATE ========
-  addPost: (req, res) => {
+  addComment: (req, res) => {
     const body = req.body;
     // console.log(body);
     if (!body) {
-      return res.status(400).json({ success: false, error: 'No post provided' });
+      return res.status(400).json({ success: false, error: 'No comment provided' });
     }
-    const post = new Post(body);
-    if (!post) {
+    const comment = new Comment(body);
+    if (!comment) {
       return res.status(400).json({ success: false, error: err });
     }
-    post.save()
+    comment.save()
       .then((result) => {
         return res.status(201).json({
           success: true,
-          id: post._id,
-          message: 'Successfully added post!'
+          id: comment._id,
+          message: 'Successfully added comment!'
         })
       })
       .catch(err => {
         return res.status(400).json({
           err,
-          message: 'Failed to add post!'
+          message: 'Failed to add comment!'
         });
       });
   },
   // ======== READ: ========
-  findAll: async (req, res) => {
-    await Post.find({}).sort({ createdAt: -1 }).exec((err, posts) => {
+  findByPostId: async (req, res) => {
+    await Comment.find({
+      postId: req.params.post
+    }).sort({ createdAt: -1 }).exec((err, comments) => {
       if (err) {
         return res.status(400).json({ success: false, error: err });
       }
-      if (!posts.length) {
+      if (!comments.length) {
         return res.status(400).json({ success: false, error: err });
       }
-      return res.status(200).json({ success: true, data: posts });
+      return res.status(200).json({ success: true, data: comments });
     });
   },
   findById: async (req, res) => {
-    await Post.findOne({ _id: req.params.id }, (err, post) => {
+    await Comment.findOne({ _id: req.params.id }, (err, comment) => {
       if (err) {
         return res.status(400).json({ success: false, error: err });
       }
-      if (!post) {
-        return res.status(404).json({ success: false, error: 'Post not found!' });
+      if (!comment) {
+        return res.status(404).json({ success: false, error: 'Comment not found!' });
       }
-      return res.status(200).json({ success: true, data: post });
+      return res.status(200).json({ success: true, data: comment });
     })
       .catch(err => console.log(err));
   },
   // ======== UPDATE: ========
-  updatePost: async (req, res) => {
+  updateComment: async (req, res) => {
     const body = req.body
     if (!body) {
-      return res.status(400).json({ success: false, error: "You must provide a post to update" });
+      return res.status(400).json({ success: false, error: "You must provide a comment to update" });
     }
-    await Post.findOneAndUpdate(
+    await Comment.findOneAndUpdate(
       { _id: body._id },
       {
-        postType: body.postType,
-        title: body.title,
         body: body.body,
-        responses: body.responses,
         updatedAt: Date.now()
       },
       // passing { new: true } assures that the function will return
@@ -71,14 +70,14 @@ module.exports = {
       { new: true }
     )
       .then(update => {
-        return res.json({ success: true, post: update });
+        return res.json({ success: true, comment: update });
       });
   },
   // ======== DELETE ========
   deleteById: async (req, res) => {
-    await Post.findByIdAndDelete(
+    await Comment.findByIdAndDelete(
       { _id: req.params.id },
     )
       .then(result => res.json({ success: true, deleted: result.title }));
   }
-}
+};
