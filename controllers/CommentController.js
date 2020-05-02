@@ -41,6 +41,19 @@ module.exports = {
       return res.status(200).json({ success: true, data: comments });
     });
   },
+  findByUserId: async (req, res) => {
+    await Comment.find({
+      userId: req.params.id
+    }).sort({ createdAt: -1 }).exec((err, comments) => {
+      if (err) {
+        return res.status(400).json({ success: false, error: err });
+      }
+      if (!comments.length) {
+        return res.status(400).json({ success: false, error: "No comments found" });
+      }
+      return res.status(200).json({ success: true, data: comments });
+    });
+  },
   findById: async (req, res) => {
     await Comment.findOne({ _id: req.params.id }, (err, comment) => {
       if (err) {
