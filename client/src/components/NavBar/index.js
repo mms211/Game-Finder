@@ -1,5 +1,6 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
+import { Link } from 'react-router-dom';
+// import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import "./style.css";

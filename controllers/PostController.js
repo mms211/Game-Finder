@@ -4,6 +4,7 @@ module.exports = {
   // ======== CREATE ========
   addPost: (req, res) => {
     const body = req.body;
+    console.log(body);
     if (!body) {
       return res.status(400).json({ success: false, error: 'No post provided' });
     }
@@ -12,7 +13,7 @@ module.exports = {
       return res.status(400).json({ success: false, error: err });
     }
     post.save()
-      .then(() => {
+      .then((result) => {
         return res.status(201).json({
           success: true,
           id: post._id,
@@ -28,7 +29,7 @@ module.exports = {
   },
   // ======== READ: ========
   findAll: async (req, res) => {
-    await Post.find({}).sort({createdAt: -1}).exec((err, posts) => {
+    await Post.find({}).sort({ createdAt: -1 }).exec((err, posts) => {
       if (err) {
         return res.status(400).json({ success: false, error: err });
       }
@@ -36,8 +37,7 @@ module.exports = {
         return res.status(400).json({ success: false, error: err });
       }
       return res.status(200).json({ success: true, data: posts });
-    })
-      .catch(err => console.log(err));
+    });
   },
   findById: async (req, res) => {
     await Post.findOne({ _id: req.params.id }, (err, post) => {

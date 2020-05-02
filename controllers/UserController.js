@@ -2,7 +2,7 @@ const User = require('../models/User');
 
 module.exports = {
     // ======== CREATE ========
-    addUser: (req, res) => {
+    addUser: async (req, res) => {
         const body = req.body;
         if (!body) {
             return res.status(400).json({ success: false, error: 'No user provided' });

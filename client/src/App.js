@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import API from "./utils/API";
 import NavBar from "./components/NavBar";
 import Home from "./components/pages/Home";
 import NoMatch from "./components/pages/NoMatch";
@@ -9,11 +10,29 @@ import Filter from "./components/pages/FilterPosts";
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
 import Authentication from "./components/pages/Authentication/Authentication";
+import UserContext from "./utils/UserContext";
 
-function App() {
+const App = () => {
+
+  const [userState, setUserState] = useState("ready");
+  const [user, setUser] = useState({
+    id: "",
+    email: ""
+  });
+
+  useEffect(() => {
+    setUserState("loading...");
+    API.getCurrentUser()
+      .then(result => {
+        const { id, email } = result.data.userData;
+        setUserState("resolved");
+        setUser({ id, email });
+      });
+  }, []);
+
   return (
-    <Router>
-      <div>
+    <UserContext.Provider value={user}>
+      <Router>
         <NavBar />
         <Switch>
           <Route exact path="/signup">
@@ -22,6 +41,9 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
+          {/* <Route exact path="/login">
+            <BundtCake setUser={setUser} />
+          </Route> */}
           <PrivateRoute exact path="/">
             <Home />
           </PrivateRoute>
@@ -38,8 +60,8 @@ function App() {
             <NoMatch />
           </PrivateRoute>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
