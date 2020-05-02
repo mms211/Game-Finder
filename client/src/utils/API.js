@@ -1,10 +1,15 @@
 import axios from "axios";
 
 export default {
+
   // === AUTHENTICATION ===
   checkTokens: () => {
     return axios.get("/api/checkToken");
   },
+  getCurrentUser: () => {
+    return axios.get("/api/users/current");
+  },
+
   // === POST CRUD ===
   getAllPosts: () => {
     return axios.get("/api/posts/all");
