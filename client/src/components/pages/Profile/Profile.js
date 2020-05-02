@@ -1,10 +1,12 @@
 import React from "react";
-import Post from "../Post";
+import Post from "../../Post";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import "./Profile.css";
 
 const Profile = () => {
   return (
+    <div className="profile-page">
     <Container>
       <Row className="justify-content-md-center">
         <Post
@@ -33,6 +35,7 @@ const Profile = () => {
         ></Post>
       </Row>
     </Container>
+    </div>
   );
 };
 
