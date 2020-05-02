@@ -6,13 +6,14 @@ import Card from "react-bootstrap/Card";
 import CommentForm from "../CommentForm";
 import Comment from "../Comment";
 import UserContext from "../../utils/UserContext";
+import API from "../../utils/API";
 
-const CommentList = (props) => {
+const CommentList = () => {
   const { email } = useContext(UserContext);
   const [show, setShow] = useState(false);
   const [commentObject, setCommentObject] = useState({
     author: email,
-    text: "",
+    body: "",
   });
 
   const handleClose = () => setShow(false);
@@ -28,12 +29,18 @@ const CommentList = (props) => {
 
   const submitComment = (event) => {
     event.preventDefault();
-    console.log(commentObject);
+    console.log("LOOK HERE", commentObject)
+    API.saveComment({
+      username: email,
+      body: commentObject.body,
+    })
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err));
   };
 
   const handleInputChange = (event) => {
     const { value } = event.target;
-    setCommentObject({ ...commentObject, text: value });
+    setCommentObject({ ...commentObject, body: value });
   };
 
   return (
