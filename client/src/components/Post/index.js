@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Btn from "../Button";
 import "./style.css";
 import Moment from 'react-moment';
-import Comment from '../Comment';
+import CommentList from '../CommentList';
 
 function Post(props) {
   const dateToFormat = props.createdAt
@@ -24,7 +24,7 @@ function Post(props) {
         </Card.Body>
         <Card.Footer>
           <Btn variant="dark" title={"Delete Post"} onClick={props.onClick}></Btn>{" "}
-          <Comment />
+          <CommentList />
         </Card.Footer>
       </Card>
     </>
