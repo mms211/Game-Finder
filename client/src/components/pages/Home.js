@@ -39,6 +39,7 @@ const Home = () => {
                   postType={post.postType}
                   createdAt={post.createdAt}
                   onClick={() => deletePost(post._id)}
+                  id={post._id}
                 ></Post>
               </div>
             ))}

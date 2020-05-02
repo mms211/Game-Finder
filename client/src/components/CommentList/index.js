@@ -8,13 +8,14 @@ import Comment from "../Comment";
 import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 
-const CommentList = () => {
+const CommentList = (props) => {
   const { email } = useContext(UserContext);
   const [show, setShow] = useState(false);
   const [commentObject, setCommentObject] = useState({
     author: email,
     body: "",
   });
+  const { author, body } = commentObject;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -28,14 +29,16 @@ const CommentList = () => {
   };
 
   const submitComment = (event) => {
-    event.preventDefault(); 
-    const { author, body } = commentObject;
+    event.preventDefault();
+
     if (!author || !body) return;
-    
+
     API.saveComment({
       username: email,
       body: body,
+      postId: props.postId
     })
+    .then((res) => console.log(res))
     .catch((err) => console.log(err));
   };
 
@@ -64,7 +67,7 @@ const CommentList = () => {
                 </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
-                <Comment data={commentObject} />
+                <Comment author={author} body={body} />
               </Accordion.Collapse>
             </Card>
           </Accordion>
