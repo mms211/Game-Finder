@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-// import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import "./style.css";
@@ -25,19 +23,6 @@ function NavBar() {
           <Nav.Link href="/filter" className="navFont">Filter Posts</Nav.Link>
         </Nav.Item>
       </Nav>
-
-
-      {/* <Navbar expand="lg" className='navbar d-flex justify-content-center'>
-        <Navbar.Brand href="/" className="navFont logo">Home</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/profile" className="navFont">Profile</Nav.Link>
-            <Nav.Link href="/create" className="navFont">Create A Post</Nav.Link>
-            <Nav.Link href="/filter" className="navFont">Filter Posts</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar> */}
     </>
   );
 }
