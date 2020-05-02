@@ -23,8 +23,12 @@ const App = () => {
   useEffect(() => {
     setUserState("loading...");
     API.getCurrentUser()
-      .then(result => console.log(result.data.userData));
-  });
+      .then(result => {
+        const { id, email } = result.data.userData;
+        setUserState("resolved");
+        setUser({ id, email });
+      });
+  }, []);
 
   return (
     <UserContext.Provider value={user}>

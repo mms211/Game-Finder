@@ -7,7 +7,15 @@ import UserContext from '../../utils/UserContext'
 const CreatePost = () => {
   const [formObject, setFormObject] = useState([]);
   const history = useHistory();
+  /**
+   * UserContext.Provider is wrapped around the <Router> in src/App.js.
+   * So anywhere within that file tree, you should be able to access
+   * current user id or email like so:
+   */
   const { email } = useContext(UserContext);
+
+  console.log(email);
+  // expected output: current logged in user's email.
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
