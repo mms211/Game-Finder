@@ -21,11 +21,15 @@ const CommentList = (props) => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    fetchComments();
+    fetchComments(props.postId);
   }, []);
 
   const fetchComments = (id) => {
-    console.log("fetch comments");
+    API.getAllCommentsOnPost(id)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
   };
 
   const submitComment = (event) => {
@@ -37,7 +41,9 @@ const CommentList = (props) => {
       username: email,
       body: body,
       postId: props.postId,
-    }).catch((err) => console.log(err));
+    })
+    .then((res) => console.log("save comment response:", res.data))
+    .catch((err) => console.log(err));
   };
 
   const handleInputChange = (event) => {
@@ -65,7 +71,7 @@ const CommentList = (props) => {
                 </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
-                <Comment author={author} body={body} />
+                <Comment commentData={commentObject} />
               </Accordion.Collapse>
             </Card>
           </Accordion>

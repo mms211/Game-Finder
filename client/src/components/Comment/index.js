@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
 const Comment = (props) => {
+    console.log("comment props:", props)
     return (
         <Card.Body>
             <ListGroup variant="flush">
