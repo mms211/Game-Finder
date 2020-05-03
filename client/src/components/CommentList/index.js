@@ -15,7 +15,7 @@ const CommentList = (props) => {
     author: email,
     body: "",
   });
-  const { author, body } = commentObject;
+  const [responseData, setResponseData] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -26,24 +26,20 @@ const CommentList = (props) => {
 
   const fetchComments = (id) => {
     API.getAllCommentsOnPost(id)
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => console.log(err));
+      .then((res) => setResponseData(res.data.data))
+      .catch((err) => console.log(err));
   };
 
   const submitComment = (event) => {
     event.preventDefault();
-
+    const { author, body } = commentObject;
     if (!author || !body) return;
 
     API.saveComment({
       username: email,
       body: body,
       postId: props.postId,
-    })
-    .then((res) => console.log("save comment response:", res.data))
-    .catch((err) => console.log(err));
+    }).catch((err) => console.log(err));
   };
 
   const handleInputChange = (event) => {
@@ -71,7 +67,7 @@ const CommentList = (props) => {
                 </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
-                <Comment commentData={commentObject} />
+                <Comment commentData={responseData} postId={props.postId} />
               </Accordion.Collapse>
             </Card>
           </Accordion>
