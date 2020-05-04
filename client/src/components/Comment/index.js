@@ -1,31 +1,42 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
+import Moment from "react-moment";
 
 const Comment = (props) => {
-  console.log("comment props:", props);
   return (
-    <Card.Body>
-      <ListGroup variant="flush">
-        {props.commentData.length ? (
-          <>
-            {props.commentData.map((comment) =>
-              comment.postId === props.postId ? (
-                <div key={comment._id}>
-                  <ListGroup.Item>
-                    {comment.body} {comment.username}
-                  </ListGroup.Item>
-                </div>
-              ) : (
-                <h3>No Results to Display</h3>
-              )
-            )}
-          </>
-        ) : (
-          <h3>No Results to Display</h3>
-        )}
-      </ListGroup>
-    </Card.Body>
+    <Card>
+      {props.commentData.length ? (
+        <>
+          {props.commentData.map((comment) =>
+            comment.postId === props.postId ? (
+              <>
+                <Card.Header></Card.Header>
+                <Card.Body key={comment._id}>
+                  <blockquote className="blockquote mb-0">
+                    <p> {comment.body} </p>
+                    <footer
+                      style={{ fontStyle: "italic" }}
+                      className="blockquote-footer"
+                    >
+                      {comment.username}
+                      {",  "}
+                      <Moment fromNow ago>
+                        {comment.createdAt}
+                      </Moment>{" "}
+                      ago
+                    </footer>
+                  </blockquote>
+                </Card.Body>
+              </>
+            ) : (
+              <h3>No Comments to Display</h3>
+            )
+          )}
+        </>
+      ) : (
+        <h3>No Comments to Display</h3>
+      )}
+    </Card>
   );
 };
 
