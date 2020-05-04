@@ -21,17 +21,16 @@ const CommentList = (props) => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    fetchComments(props.postId);
+    fetchComments();
   }, []);
 
-  const fetchComments = (id) => {
-    API.getAllCommentsOnPost(id)
+  const fetchComments = () => {
+    API.getAllCommentsOnPost(props.postId)
       .then((res) => setResponseData(res.data.data))
       .catch((err) => console.log(err));
   };
 
   const submitComment = (event) => {
-    event.preventDefault();
     const { author, body } = commentObject;
     if (!author || !body) return;
 
@@ -39,7 +38,9 @@ const CommentList = (props) => {
       username: email,
       body: body,
       postId: props.postId,
-    }).catch((err) => console.log(err));
+    })
+    .then(() => fetchComments())
+    .catch((err) => console.log(err));
   };
 
   const handleInputChange = (event) => {
@@ -50,7 +51,7 @@ const CommentList = (props) => {
   return (
     <>
       <Button variant="dark" onClick={handleShow}>
-        Leave a Comment
+        Comments
       </Button>
 
       <Modal show={show} onHide={handleClose}>
