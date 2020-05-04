@@ -1,22 +1,24 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const CommentForm = (props) => {
   return (
-    <Form>
-      <Form.Group controlId="exampleForm.ControlTextarea1">
-        <Form.Control
-          as="textarea"
-          rows="3"
-          placeholder="Add a comment..."
-          onChange={props.onChange}
-        />
+    <InputGroup>
+      <FormControl
+        as="textarea"
+        rows="3"
+        placeholder="Add a comment..."
+        onChange={props.onChange}
+        value={props.value}
+      />
+      <InputGroup.Append>
         <Button variant="dark" type="submit" onClick={props.onClick}>
           Submit
         </Button>
-      </Form.Group>
-    </Form>
+      </InputGroup.Append>
+    </InputGroup>
   );
 };
 

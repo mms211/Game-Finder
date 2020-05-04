@@ -31,6 +31,7 @@ const CommentList = (props) => {
   };
 
   const submitComment = (event) => {
+    event.preventDefault();
     const { author, body } = commentObject;
     if (!author || !body) return;
 
@@ -40,12 +41,13 @@ const CommentList = (props) => {
       postId: props.postId,
     })
     .then(() => fetchComments())
+    .then(() => setCommentObject({body: ""}))
     .catch((err) => console.log(err));
   };
 
   const handleInputChange = (event) => {
     const { value } = event.target;
-    setCommentObject({ ...commentObject, body: value });
+    setCommentObject({ ...commentObject, body: value, author: email });
   };
 
   return (
@@ -59,7 +61,7 @@ const CommentList = (props) => {
           <Modal.Title>Leave A Comment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <CommentForm onClick={submitComment} onChange={handleInputChange} />
+          <CommentForm onClick={submitComment} onChange={handleInputChange} value={commentObject.body} />
           <Accordion>
             <Card>
               <Card.Header>
