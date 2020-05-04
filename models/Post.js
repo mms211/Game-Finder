@@ -25,10 +25,6 @@ const newSchema = new Schema({
     type: String,
     required: true
   },
-  'responses': {
-    type: String,
-    emun: true
-  },
   'createdAt': { type: Date, default: Date.now },
   'updatedAt': { type: Date, default: Date.now }
 });
