@@ -8,3 +8,8 @@
     height: calc(100vh - 210px);
     background-color: navy;
 }
+
+.header {
+    font-weight: bolder !important;
+    font-family: 'Megrim', cursive;
+}

@@ -9,6 +9,7 @@ function SignUp(props) {
   return (
     <Container fluid className='signUpContainer'> 
       <Card body className='signUpCard'>
+      <h2 className="header text-center"> Sign Up</h2>
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

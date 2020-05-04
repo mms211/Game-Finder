@@ -36,6 +36,7 @@ const Login = () => {
     <>
       <Container fluid className="loginContainer">
         <Card body className="loginCard">
+          <h2 className="header text-center"> Log In</h2>
           <Form>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
