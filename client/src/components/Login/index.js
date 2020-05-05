@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Btn from "../Button";
+import Header from "../Header";
 import Navbar from "react-bootstrap/Navbar";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -34,6 +35,7 @@ const Login = () => {
 
   return (
     <>
+      <Header />
       <Container fluid className="loginContainer">
         <Card body className="loginCard">
           <h2 className="header text-center"> Log In</h2>
