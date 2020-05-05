@@ -14,7 +14,8 @@ const CreatePost = () => {
    */
   const { id } = useContext(UserContext);
 
-  // console.log(id);
+  console.log(id);
+  // console.log(email);
   // expected output: current logged in user's userId.
 
   const handleInputChange = (event) => {
@@ -27,6 +28,7 @@ const CreatePost = () => {
     API.savePost({
       postType: formObject.postType,
       userId: id,
+      // email: email,
       title: formObject.title,
       body: formObject.body,
     })
