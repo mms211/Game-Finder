@@ -6,6 +6,7 @@ const PostController = require('../controllers/PostController.js');
 const CommentController = require('../controllers/CommentController');
 const authenticate = require('../controllers/Authentication.js');
 const isAuthorized = require('../bin/isAuthorized');
+const canDelete = require('../bin/canDelete')
 const getCurrentUser = require('../bin/getCurrentUser');
 
 // root directory == "/api/"
@@ -48,7 +49,10 @@ router.get('/posts/:id', PostController.findById);
 router.put('/posts/update', isAuthorized, PostController.updatePost);
 
 // delete:
-router.delete('/posts/delete/:id', isAuthorized, PostController.deleteById);
+router.delete('/posts/delete/:id',
+  isAuthorized,
+  canDelete,
+  PostController.deleteById);
 
 // ==== comment CRUD ====
 
@@ -65,7 +69,7 @@ router.get('/posts/:id/comments',
   isAuthorized,
   CommentController.findByPostId);
 router.get('/users/:id/comments',
-  // isAuthorized, 
+  isAuthorized,
   CommentController.findByUserId);
 
 // update:
@@ -75,7 +79,7 @@ router.put('/comments/update/',
 
 // delete:
 router.delete('/comments/delete/:id',
-  // isAuthorized, 
+  isAuthorized,
   CommentController.deleteById);
 
 // ======== AUTHENTICATION ========

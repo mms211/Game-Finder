@@ -8,21 +8,14 @@ const Permalink = (props) => {
 
   const [post, setPost] = useState({});
   const [postState, setPostState] = useState("ready");
-  const [comments, setComments] = useState({});
-  const [commentsState, setCommentsState] = useState("ready");
 
   useEffect(() => {
     setPostState("loading post");
-    setCommentsState("loading comments");
     API.getPostById(id).then((result) => {
       setPost(result.data.data);
       setPostState("resolved");
     });
-    API.getCommentsByPost(id).then((result) => {
-      setComments(result.data.data);
-      setCommentsState("resolved");
-    });
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -32,6 +25,7 @@ const Permalink = (props) => {
           postState
         ) : (
           <Post
+            id={id}
             title={post.title}
             username={post.user}
             body={post.body}

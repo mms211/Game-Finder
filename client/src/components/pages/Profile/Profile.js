@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Post from "../../Post";
+import Btn from "../../Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "./Profile.css";
@@ -43,12 +44,17 @@ const Profile = (props) => {
                       body={post.body}
                       postType={post.postType}
                       createdAt={post.createdAt}
-                      onClick={() => deletePost(post._id)}
                       id={post._id}
-                    ></Post>
+                    >
+                      <Btn
+                        variant="dark"
+                        title={"Delete Post"}
+                        onClick={() => deletePost(post._id)}
+                      ></Btn>{" "}
+                    </Post>
                   </div>
                 ) : (
-                  <></>
+                  <h3></h3>
                 )
               )}
             </Row>
