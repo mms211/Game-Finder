@@ -46,7 +46,7 @@ const Profile = (props) => {
                   </Post>
                 </div>
               ) : (
-                <></>
+                <h3></h3>
               )
             )}
           </Row>
