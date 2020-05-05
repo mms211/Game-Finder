@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
 import NavBar from "./components/NavBar";
 import Home from "./components/pages/Home/Home";
+import PrivateRoute from "./components/PrivateRoute";
+import Login from "./components/Login";
 import NoMatch from "./components/pages/NoMatch";
 import Profile from "./components/pages/Profile/Profile";
 import Create from "./components/pages/CreatePost";
 import Filter from "./components/pages/FilterPosts/FilterPosts";
-import PrivateRoute from "./components/PrivateRoute";
-import Login from "./components/Login";
 import Authentication from "./components/pages/Authentication/Authentication";
+import Permalink from "./components/pages/Permalink";
 import UserContext from "./utils/UserContext";
 
 const App = () => {
@@ -31,7 +32,6 @@ const App = () => {
   return (
     <UserContext.Provider value={user}>
       <Router>
-        <NavBar />
         <Switch>
           <Route exact path="/signup">
             <Authentication />
@@ -43,13 +43,17 @@ const App = () => {
             <Home />
           </PrivateRoute>
           <PrivateRoute exact path="/profile">
-            <Profile />
+            <Profile user={user}/>
           </PrivateRoute>
           <PrivateRoute exact path="/create">
             <Create />
           </PrivateRoute>
           <PrivateRoute exact path="/filter">
             <Filter />
+          </PrivateRoute>
+          <PrivateRoute path="/postview/:id" component={Permalink} />
+          <PrivateRoute exact path="/">
+            <Home />
           </PrivateRoute>
           <PrivateRoute>
             <NoMatch />

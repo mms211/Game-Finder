@@ -14,6 +14,9 @@ export default {
   getAllPosts: () => {
     return axios.get("/api/posts/all");
   },
+  getPostById: (id) => {
+    return axios.get("/api/posts/" + id);
+  },
   savePost: (postData) => {
     return axios.post("/api/posts/add", postData);
   },
@@ -21,13 +24,15 @@ export default {
     return axios.delete("/api/posts/delete/" + id);
   },
 
-  // === COMMENT CRUD ===
+  // ==== COMMENT CRUD ====
+  getCommentsByPost: (id) => {
+    return axios.get("/api/posts/" + id + "/comments");
+  },
   saveComment: (commentData) => {
     return axios.post("/api/comments/add", commentData);
   },
-  getAllCommentsOnPost: (id) => {
-    return axios.get("api/posts/comments/" + id);
-  },
+
+  // ==== Board Game Atlas ====
   boardGameAtlasSearch: (url) => {
     return axios.put('/api/search', { url: url });
   }
