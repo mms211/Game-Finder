@@ -23,7 +23,7 @@ function Post(props) {
           <Card.Text>{props.body}</Card.Text>
         </Card.Body>
         <Card.Footer>
-          <Btn variant="dark" title={"Delete Post"} onClick={props.onClick}></Btn>{" "}
+          {props.children}
           <CommentList postId={props.id}/>
         </Card.Footer>
       </Card>
