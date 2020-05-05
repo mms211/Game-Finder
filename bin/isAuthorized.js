@@ -11,6 +11,7 @@ const isAuthorized = (req, res, next) => {
         res.status(401).send('Unauthorized: Invalid token');
       } else {
         req.email = decoded.email;
+        req.id = decoded.id;
         next();
       }
     });

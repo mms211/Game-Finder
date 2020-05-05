@@ -14,12 +14,22 @@ export default {
   getAllPosts: () => {
     return axios.get("/api/posts/all");
   },
+  getPostById: (id) => {
+    return axios.get("/api/posts/" + id);
+  },
   savePost: (postData) => {
     return axios.post("/api/posts/add", postData);
   },
   deletePost: (id) => {
     return axios.delete("/api/posts/delete/" + id);
   },
+
+  // ==== COMMENT CRUD ====
+  getCommentsByPost: (id) => {
+    return axios.get("/api/posts/" + id + "/comments");
+  },
+
+  // ==== Board Game Atlas ====
   boardGameAtlasSearch: (url) => {
     return axios.put('/api/search', { url: url });
   }
