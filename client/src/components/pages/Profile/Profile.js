@@ -45,12 +45,12 @@ const Profile = (props) => {
                   ></Post>
                 </div>
               ) : (
-                <h3>Be a trendsetter, make a post!</h3>
+                <h3></h3>
               )
             )}
           </Row>
         ) : (
-          <h3></h3>
+          <h3>Be a trendsetter, make a post!</h3>
         )}
       </Container>
     </div>
