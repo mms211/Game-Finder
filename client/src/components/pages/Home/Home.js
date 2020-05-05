@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Post from "../../Post";
+import Btn from "../../Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import API from "../../../utils/API";
@@ -20,12 +21,6 @@ const Home = () => {
       .catch((err) => console.log(err));
   };
 
-  const deletePost = (id) => {
-    API.deletePost(id)
-      .then((res) => loadPosts())
-      .catch((err) => console.log(err));
-  };
-
   return (
     <div className="homeCont">
     <Container>
@@ -40,9 +35,10 @@ const Home = () => {
                   body={post.body}
                   postType={post.postType}
                   createdAt={post.createdAt}
-                  onClick={() => deletePost(post._id)}
                   id={post._id}
-                ></Post>
+                >
+                  <Btn variant="dark" title={"View Post"} href={`/postview/${post._id}`} ></Btn>
+                </Post>
               </div>
             ))}
           </>
