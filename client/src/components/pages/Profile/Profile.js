@@ -45,7 +45,11 @@ const Profile = (props) => {
                   ></Post>
                 </div>
               ) : (
+<<<<<<< HEAD
                 <h3></h3>
+=======
+                <></>
+>>>>>>> 5e5ffd9ab651009a97d513cbd1fade6ffdce96b6
               )
             )}
           </Row>
