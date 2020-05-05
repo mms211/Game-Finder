@@ -9,6 +9,7 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 
 const CommentList = (props) => {
+  console.log(props);
   const { email } = useContext(UserContext);
   const [show, setShow] = useState(false);
   const [commentObject, setCommentObject] = useState({

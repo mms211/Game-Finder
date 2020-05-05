@@ -23,30 +23,31 @@ const Home = () => {
 
   return (
     <div className="homeCont">
-    <Container>
-      <Row className="justify-content-md-center home-row">
-        {posts.length ? (
-          <>
-            {posts.map((post) => (
-              <div key={post._id}>
-                <Post
-                  title={post.title}
-                  username={post.user}
-                  body={post.body}
-                  postType={post.postType}
-                  createdAt={post.createdAt}
-                  id={post._id}
-                >
-                  <Btn variant="dark" title={"View Post"} href={`/postview/${post._id}`} ></Btn>
-                </Post>
-              </div>
-            ))}
-          </>
-        ) : (
-          <h3>Be a trendsetter, make a post!</h3>
-        )}
-      </Row>
-    </Container>
+      <Container>
+        <Row className="justify-content-md-center home-row">
+          {posts.length ? (
+            <>
+              {posts.map((post) => (
+                <div key={post._id}>
+                  <Post
+                    title={post.title}
+                    userid={post.userId}
+                    username={post.user}
+                    body={post.body}
+                    postType={post.postType}
+                    createdAt={post.createdAt}
+                    id={post._id}
+                  >
+                    <Btn variant="dark" title={"View Post"} href={`/postview/${post._id}`} ></Btn>
+                  </Post>
+                </div>
+              ))}
+            </>
+          ) : (
+              <h3>Be a trendsetter, make a post!</h3>
+            )}
+        </Row>
+      </Container>
     </div>
   );
 };
