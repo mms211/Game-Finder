@@ -31,6 +31,7 @@ const Home = () => {
                 <div key={post._id}>
                   <Post
                     title={post.title}
+                    userid={post.userId}
                     username={post.user}
                     body={post.body}
                     postType={post.postType}

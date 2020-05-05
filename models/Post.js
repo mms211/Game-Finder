@@ -17,7 +17,7 @@ const newSchema = new Schema({
     type: String,
     required: true
   },
-  'email': {
+  'user': {
     type: String,
     required: true
   },

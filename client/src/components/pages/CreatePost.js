@@ -12,9 +12,9 @@ const CreatePost = () => {
    * So anywhere within that file tree, you should be able to access
    * current user id or email like so:
    */
-  const { id } = useContext(UserContext);
+  const { id, email } = useContext(UserContext);
 
-  console.log(id);
+  // console.log(id + ", email: " + email);
   // console.log(email);
   // expected output: current logged in user's userId.
 
@@ -28,7 +28,7 @@ const CreatePost = () => {
     API.savePost({
       postType: formObject.postType,
       userId: id,
-      // email: email,
+      user: email,
       title: formObject.title,
       body: formObject.body,
     })
