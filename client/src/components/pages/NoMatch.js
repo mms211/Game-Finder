@@ -1,11 +1,13 @@
 import React from "react";
+import NavBar from "../NavBar";
 
-const NoMatch= () => {
+const NoMatch = () => {
   return (
     <>
-    <h3> Sorry, can't find that page</h3>
+      <NavBar />
+      <h3> Sorry, can't find that page</h3>
     </>
   );
-}
+};
 
 export default NoMatch;

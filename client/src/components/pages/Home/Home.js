@@ -4,6 +4,7 @@ import Btn from "../../Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import API from "../../../utils/API";
+import NavBar from "../../NavBar";
 import "./Home.css";
 
 const Home = () => {
@@ -22,33 +23,40 @@ const Home = () => {
   };
 
   return (
-    <div className="homeCont">
-      <Container>
-        <Row className="justify-content-md-center home-row">
-          {posts.length ? (
-            <>
-              {posts.map((post) => (
-                <div key={post._id}>
-                  <Post
-                    title={post.title}
-                    userid={post.userId}
-                    username={post.user}
-                    body={post.body}
-                    postType={post.postType}
-                    createdAt={post.createdAt}
-                    id={post._id}
-                  >
-                    <Btn variant="dark" title={"View Post"} href={`/postview/${post._id}`} ></Btn>
-                  </Post>
-                </div>
-              ))}
-            </>
-          ) : (
+    <>
+      <NavBar />
+      <div className="homeCont">
+        <Container>
+          <Row className="justify-content-md-center home-row">
+            {posts.length ? (
+              <>
+                {posts.map((post) => (
+                  <div key={post._id}>
+                    <Post
+                      title={post.title}
+                      userid={post.userId}
+                      username={post.user}
+                      body={post.body}
+                      postType={post.postType}
+                      createdAt={post.createdAt}
+                      id={post._id}
+                    >
+                      <Btn
+                        variant="dark"
+                        title={"View Post"}
+                        href={`/postview/${post._id}`}
+                      ></Btn>
+                    </Post>
+                  </div>
+                ))}
+              </>
+            ) : (
               <h3>Be a trendsetter, make a post!</h3>
             )}
-        </Row>
-      </Container>
-    </div>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 };
 

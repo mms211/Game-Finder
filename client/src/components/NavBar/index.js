@@ -1,15 +1,13 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Jumbotron from 'react-bootstrap/Jumbotron';
+import Header from "../Header";
 import "./style.css";
 
 function NavBar() {
   return (
     <>
-      <Jumbotron fluid className="jumbo">
-        <h1>GameFinder</h1>
-      </Jumbotron>
+      <Header />
       <Navbar className="justify-content-center navbar" activeKey="/home">
         <Nav>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
