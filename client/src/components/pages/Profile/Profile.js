@@ -50,7 +50,7 @@ const Profile = (props) => {
             )}
           </Row>
         ) : (
-          <h3>Be a trendsetter, make a post!</h3>
+          <h3></h3>
         )}
       </Container>
     </div>
