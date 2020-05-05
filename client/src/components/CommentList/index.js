@@ -25,7 +25,7 @@ const CommentList = (props) => {
   }, []);
 
   const fetchComments = () => {
-    API.getAllCommentsOnPost(props.postId)
+    API.getCommentsByPost(props.postId)
       .then((res) => setResponseData(res.data.data))
       .catch((err) => console.log(err));
   };
@@ -40,9 +40,9 @@ const CommentList = (props) => {
       body: body,
       postId: props.postId,
     })
-    .then(() => fetchComments())
-    .then(() => setCommentObject({body: ""}))
-    .catch((err) => console.log(err));
+      .then(() => fetchComments())
+      .then(() => setCommentObject({ body: "" }))
+      .catch((err) => console.log(err));
   };
 
   const handleInputChange = (event) => {

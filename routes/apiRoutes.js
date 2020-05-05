@@ -61,7 +61,7 @@ router.post('/comments/add',
 router.get('/comments/:id',
   isAuthorized,
   CommentController.findById);
-router.get('/posts/comments/:id',
+router.get('/posts/:id/comments',
   isAuthorized,
   CommentController.findByPostId);
 router.get('/users/:id/comments',
