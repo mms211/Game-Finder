@@ -48,7 +48,7 @@ const Profile = (props) => {
                     ></Post>
                   </div>
                 ) : (
-                  <h3>Be a trendsetter, make a post!</h3>
+                  <></>
                 )
               )}
             </Row>
