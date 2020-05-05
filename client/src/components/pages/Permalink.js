@@ -16,19 +16,15 @@ const Permalink = (props) => {
     setCommentsState("loading comments");
     API.getPostById(id)
       .then(result => {
-        console.log(result.data.data);
         setPost(result.data.data);
         setPostState("resolved");
       });
     API.getCommentsByPost(id)
       .then(result => {
-        console.log(result.data.data);
         setComments(result.data.data);
         setCommentsState("resolved");
       });
   }, []);
-
-  if (post) { console.log(post) }
 
   return (
     <div>
