@@ -1,0 +1,12 @@
+.createForm {
+    background-color: navy;
+    height: calc(100vh - 150px); 
+}
+
+.contForm {
+    background-color: white;
+    position: absolute;
+    top: 30%;
+    margin-right: -10% !important;
+    margin-left: 10% !important;
+}

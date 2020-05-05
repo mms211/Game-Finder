@@ -28,6 +28,9 @@ export default {
   getCommentsByPost: (id) => {
     return axios.get("/api/posts/" + id + "/comments");
   },
+  saveComment: (commentData) => {
+    return axios.post("/api/comments/add", commentData);
+  },
 
   // ==== Board Game Atlas ====
   boardGameAtlasSearch: (url) => {

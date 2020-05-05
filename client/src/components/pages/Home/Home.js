@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Post from "../Post";
+import Post from "../../Post";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import API from "../../utils/API";
+import API from "../../../utils/API";
+import "./Home.css";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -26,8 +27,9 @@ const Home = () => {
   };
 
   return (
+    <div className="homeCont">
     <Container>
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-md-center home-row">
         {posts.length ? (
           <>
             {posts.map((post) => (
@@ -39,15 +41,17 @@ const Home = () => {
                   postType={post.postType}
                   createdAt={post.createdAt}
                   onClick={() => deletePost(post._id)}
+                  id={post._id}
                 ></Post>
               </div>
             ))}
           </>
         ) : (
-          <h3>No Results to Display</h3>
+          <h3>Be a trendsetter, make a post!</h3>
         )}
       </Row>
     </Container>
+    </div>
   );
 };
 
