@@ -28,29 +28,29 @@ const Home = () => {
 
   return (
     <div className="homeCont">
-    <Container>
-      <Row className="justify-content-md-center home-row">
-        {posts.length ? (
-          <>
-            {posts.map((post) => (
-              <div key={post._id}>
-                <Post
-                  title={post.title}
-                  username={post.user}
-                  body={post.body}
-                  postType={post.postType}
-                  createdAt={post.createdAt}
-                  onClick={() => deletePost(post._id)}
-                  id={post._id}
-                ></Post>
-              </div>
-            ))}
-          </>
-        ) : (
-          <h3>Be a trendsetter, make a post!</h3>
-        )}
-      </Row>
-    </Container>
+      <Container>
+        <Row className="justify-content-md-center home-row">
+          {posts.length ? (
+            <>
+              {posts.map((post) => (
+                <div key={post._id}>
+                  <Post
+                    title={post.title}
+                    username={post.user}
+                    body={post.body}
+                    postType={post.postType}
+                    createdAt={post.createdAt}
+                    onClick={() => deletePost(post._id)}
+                    id={post._id}
+                  ></Post>
+                </div>
+              ))}
+            </>
+          ) : (
+              <h3>Be a trendsetter, make a post!</h3>
+            )}
+        </Row>
+      </Container>
     </div>
   );
 };

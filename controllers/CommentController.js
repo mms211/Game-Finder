@@ -31,7 +31,7 @@ module.exports = {
   findByPostId: async (req, res) => {
     await Comment.find({
       postId: req.params.id
-    }).sort({ createdAt: -1 }).exec((err, comments) => {
+    }).sort({ createdAt: 1 }).exec((err, comments) => {
       if (err) {
         return res.status(400).json({ success: false, error: err });
       }
