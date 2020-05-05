@@ -48,7 +48,7 @@ const App = () => {
             <Home />
           </PrivateRoute>
           <PrivateRoute exact path="/profile">
-            <Profile />
+            <Profile user={user}/>
           </PrivateRoute>
           <PrivateRoute exact path="/create">
             <Create />
