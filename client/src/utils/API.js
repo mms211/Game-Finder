@@ -20,6 +20,14 @@ export default {
   deletePost: (id) => {
     return axios.delete("/api/posts/delete/" + id);
   },
+
+  // === COMMENT CRUD ===
+  saveComment: (commentData) => {
+    return axios.post("/api/comments/add", commentData);
+  },
+  getAllCommentsOnPost: (id) => {
+    return axios.get("api/posts/comments/" + id);
+  },
   boardGameAtlasSearch: (url) => {
     return axios.put('/api/search', { url: url });
   }
