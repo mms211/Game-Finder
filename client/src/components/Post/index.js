@@ -12,6 +12,7 @@ function Post(props) {
     <>
       <Card className="text-center post-wrapper" border="secondary">
         <Card.Header>
+          {props.username}
           <Moment fromNow ago>
             {dateToFormat}
           </Moment>{" "}
