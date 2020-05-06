@@ -59,14 +59,14 @@ const Profile = (props) => {
                     </Post>
                   </div>
                 ) : (
-                    <h3></h3>
-                  )
+                  <h3></h3>
+                )
               )}
             </Row>
           ) : (
             <h3>Be a trendsetter, make a post!</h3>
           )}
-          </CardGroup>
+        </CardGroup>
       </Container>
     </>
   );
