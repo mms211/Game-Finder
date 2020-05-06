@@ -1,26 +1,18 @@
-.navFont {
+.top-nav {
+    color: #eee;
     font-family: 'Megrim', cursive;
-    color: white !important;
     font-weight: bold;
-    font-size: 20px !important;
 }
 
-.navbar {
-    background-color: navy;
-    height: 60px;
+.navbar-light .navbar-nav .nav-link {
+    color: #eee !important;
+    font-size: 1.5em;
 }
 
-h1 {
-    font-size: 75px !important;
-    font-weight: bolder !important;
-    color: white !important;
-    font-family: 'Megrim', cursive;
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #c8c8c8 !important;
 }
 
-.jumbo {
-    background-color: navy !important;
-    margin-bottom: 0px !important;
-    padding: 15px 0px 0px 0px !important;
-    text-align: center;
-    height: 100px;
+.navbar button {
+    background-color: #777;
 }

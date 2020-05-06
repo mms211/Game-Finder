@@ -5,8 +5,11 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import CardGroup from "react-bootstrap/CardGroup";
 import "./Profile.css";
-import API from "../../../utils/API";
 import NavBar from "../../NavBar";
+import Header from "../../Header";
+import API from "../../../utils/API";
+
+import "./Profile.css";
 
 const Profile = (props) => {
   const [posts, setPosts] = useState([]);
@@ -31,8 +34,9 @@ const Profile = (props) => {
 
   return (
     <>
+      <Header />
       <NavBar />
-      <div className="profile-page">
+      <Container className="profile-page">
         <CardGroup>
           {posts.length ? (
             <Row>
@@ -55,15 +59,15 @@ const Profile = (props) => {
                     </Post>
                   </div>
                 ) : (
-                  <h3></h3>
-                )
+                    <h3></h3>
+                  )
               )}
             </Row>
           ) : (
             <h3>Be a trendsetter, make a post!</h3>
           )}
           </CardGroup>
-      </div>
+      </Container>
     </>
   );
 };

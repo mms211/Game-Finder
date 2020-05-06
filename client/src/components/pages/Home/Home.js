@@ -7,6 +7,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import CardGroup from "react-bootstrap/CardGroup";
 import API from "../../../utils/API";
+import Header from "../../Header";
 import NavBar from "../../NavBar";
 import "./Home.css";
 
@@ -57,6 +58,7 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       <NavBar />
       <div className="homeCont">
         <Container>
