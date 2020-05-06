@@ -1,8 +1,11 @@
 .post-wrapper {
-    margin: 2rem;
+    margin: 5rem;
+    width: 25rem;
+    background-color: white;
   }
 
   .post-icon {
-    width: 5%;
-    height: 5%;
+    width: 4rem;
+    height: 4rem;
+    padding: 3rem, 3rem;
   }
