@@ -1,3 +1,8 @@
 .post-wrapper {
     margin: 2rem;
   }
+
+  .post-icon {
+    width: 5%;
+    height: 5%;
+  }
