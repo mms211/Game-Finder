@@ -60,6 +60,7 @@ const Home = () => {
       <div className="homeCont">
         <Container>
           <DropdownButton
+            className="dropdown"
             variant="dark"
             id="dropdown-item-button"
             title="Filter By Type"
