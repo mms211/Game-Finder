@@ -1,9 +1,13 @@
 import React from "react";
-// import Jumbotron from 'react-bootstrap/Jumbotron';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import './style.css'
 
 const Header = () => {
   return (
-    <h1>GameFinder</h1>);
+    <Jumbotron>
+      <h1>GameFinder</h1>
+    </Jumbotron>
+  );
 };
 
 export default Header;

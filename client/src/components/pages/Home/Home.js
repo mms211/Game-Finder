@@ -4,6 +4,7 @@ import Btn from "../../Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import API from "../../../utils/API";
+import Header from "../../Header";
 import NavBar from "../../NavBar";
 import "./Home.css";
 
@@ -24,6 +25,7 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       <NavBar />
       <div className="homeCont">
         <Container>
@@ -51,8 +53,8 @@ const Home = () => {
                 ))}
               </>
             ) : (
-              <h3>Be a trendsetter, make a post!</h3>
-            )}
+                <h3>Be a trendsetter, make a post!</h3>
+              )}
           </Row>
         </Container>
       </div>

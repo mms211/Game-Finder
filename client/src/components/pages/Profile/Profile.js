@@ -3,9 +3,11 @@ import Post from "../../Post";
 import Btn from "../../Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import "./Profile.css";
-import API from "../../../utils/API";
 import NavBar from "../../NavBar";
+import Header from "../../Header";
+import API from "../../../utils/API";
+
+import "./Profile.css";
 
 const Profile = (props) => {
   const [posts, setPosts] = useState([]);
@@ -30,6 +32,7 @@ const Profile = (props) => {
 
   return (
     <>
+      <Header />
       <NavBar />
       <div className="profile-page">
         <Container>
@@ -54,13 +57,13 @@ const Profile = (props) => {
                     </Post>
                   </div>
                 ) : (
-                  <h3></h3>
-                )
+                    <h3></h3>
+                  )
               )}
             </Row>
           ) : (
-            <h3>Be a trendsetter, make a post!</h3>
-          )}
+              <h3>Be a trendsetter, make a post!</h3>
+            )}
         </Container>
       </div>
     </>

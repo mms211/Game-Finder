@@ -1,14 +1,12 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import Header from "../Header";
 import "./style.css";
 
 function NavBar() {
   return (
-    <Navbar className="navbar" activeKey="/home" expand="lg">
-      <h1>GameFinder</h1>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar className="top-nav" activeKey="/home" expand="lg">
+      <Navbar.Toggle className="ml-auto" aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto ml-auto">
           <Nav.Link href="/" className="navFont">Home</Nav.Link>
