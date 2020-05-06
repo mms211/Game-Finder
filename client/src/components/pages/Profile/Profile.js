@@ -3,6 +3,7 @@ import Post from "../../Post";
 import Btn from "../../Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import CardGroup from "react-bootstrap/CardGroup";
 import "./Profile.css";
 import API from "../../../utils/API";
 import NavBar from "../../NavBar";
@@ -32,9 +33,9 @@ const Profile = (props) => {
     <>
       <NavBar />
       <div className="profile-page">
-        <Container>
+        <CardGroup>
           {posts.length ? (
-            <Row className="justify-content-md-center home-row">
+            <Row>
               {posts.map((post) =>
                 post.user === props.user.email ? (
                   <div key={post._id}>
@@ -61,7 +62,7 @@ const Profile = (props) => {
           ) : (
             <h3>Be a trendsetter, make a post!</h3>
           )}
-        </Container>
+          </CardGroup>
       </div>
     </>
   );

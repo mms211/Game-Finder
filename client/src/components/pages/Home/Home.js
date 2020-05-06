@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import CardGroup from "react-bootstrap/CardGroup";
 import API from "../../../utils/API";
 import NavBar from "../../NavBar";
 import "./Home.css";
@@ -76,9 +77,9 @@ const Home = () => {
             </Dropdown.Item>
           </DropdownButton>
 
-          <Row className="justify-content-md-center home-row">
+          <CardGroup>
             {posts.length ? (
-              <Row className="justify-content-md-center home-row">
+              <Row>
                 {posts.map((post) =>
                   filter.showAll ? (
                     <Post
@@ -120,7 +121,7 @@ const Home = () => {
             ) : (
               <h3>Be a trendsetter, make a post!</h3>
             )}
-          </Row>
+          </CardGroup>
         </Container>
       </div>
     </>
