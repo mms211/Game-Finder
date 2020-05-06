@@ -7,6 +7,7 @@ import CommentForm from "../CommentForm";
 import Comment from "../Comment";
 import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
+import "./style.css";
 
 const CommentList = (props) => {
   console.log(props);
@@ -53,8 +54,14 @@ const CommentList = (props) => {
 
   return (
     <>
-      <Button variant="dark" onClick={handleShow}>
-        Comments
+      <Button variant="light">
+        <img
+          src={require("../../assets/images/comments.png")}
+          alt="comment button"
+          onClick={handleShow}
+          id="commentButton"
+        />{" "}
+        {responseData.length}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -62,7 +69,11 @@ const CommentList = (props) => {
           <Modal.Title>Leave A Comment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <CommentForm onClick={submitComment} onChange={handleInputChange} value={commentObject.body} />
+          <CommentForm
+            onClick={submitComment}
+            onChange={handleInputChange}
+            value={commentObject.body}
+          />
           <Accordion>
             <Card>
               <Card.Header>
