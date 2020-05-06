@@ -2,7 +2,7 @@
 
 # User Story
 
-AS A board game love
+AS A board game lover
 
 I WANT to meet other board game players
 
