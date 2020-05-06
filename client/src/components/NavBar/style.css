@@ -1,4 +1,38 @@
-.navFont {
+.navbar {
+    color: #eee;
+    font-family: 'Megrim', cursive;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    /*
+    * The Flex order is working kinda
+    * I think I need to add "row" divs
+    * One for the h1 and one for the links
+    */
+    order: 2;
+    color: #eee !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #c8c8c8 !important;
+}
+
+.navbar button {
+    background-color: #777;
+}
+
+.navbar h1 {
+    order: 1;
+}
+
+/* .navbar a {
+    color: #eee;
+} */
+
+/* .navFont {
     font-family: 'Megrim', cursive;
     color: white !important;
     font-weight: bold;
@@ -23,4 +57,4 @@ h1 {
     padding: 15px 0px 0px 0px !important;
     text-align: center;
     height: 100px;
-}
+} */
