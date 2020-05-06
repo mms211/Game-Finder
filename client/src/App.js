@@ -7,7 +7,6 @@ import Login from "./components/Login";
 import NoMatch from "./components/pages/NoMatch";
 import Profile from "./components/pages/Profile/Profile";
 import Create from "./components/pages/CreatePost";
-import Filter from "./components/pages/FilterPosts/FilterPosts";
 import Authentication from "./components/pages/Authentication/Authentication";
 import Permalink from "./components/pages/Permalink";
 import UserContext from "./utils/UserContext";
@@ -46,9 +45,6 @@ const App = () => {
           </PrivateRoute>
           <PrivateRoute exact path="/create">
             <Create />
-          </PrivateRoute>
-          <PrivateRoute exact path="/filter">
-            <Filter />
           </PrivateRoute>
           <PrivateRoute path="/postview/:id" component={Permalink} />
           <PrivateRoute exact path="/">
