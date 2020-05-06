@@ -29,12 +29,12 @@ const Comment = (props) => {
                 </Card.Body>
               </>
             ) : (
-              <h3>No Comments to Display</h3>
+              <p>No Comments yet. Stay tuned!</p>
             )
           )}
         </>
       ) : (
-        <h3>No Comments to Display</h3>
+        <p>No Comments yet. Stay tuned!</p>
       )}
     </Card>
   );
