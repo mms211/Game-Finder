@@ -4,6 +4,7 @@ import CreateForm from "../CreateForm";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../utils/UserContext";
 import NavBar from "../NavBar";
+import Header from "../Header";
 
 const CreatePost = () => {
   const [formObject, setFormObject] = useState([]);
@@ -39,6 +40,7 @@ const CreatePost = () => {
 
   return (
     <>
+      <Header />
       <NavBar />
       <CreateForm
         handleFormSubmit={handleFormSubmit}

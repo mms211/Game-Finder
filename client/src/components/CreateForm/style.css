@@ -4,9 +4,16 @@
 }
 
 .contForm {
+    padding: 15px;
     background-color: white;
-    position: absolute;
-    top: 30%;
-    margin-right: -10% !important;
-    margin-left: 10% !important;
+    border-radius: 0.5%;
+    /* position: absolute; */
+    /* top: 30%; */
+    /* margin-right: -10% !important; */
+    /* margin-left: 10% !important; */
+}
+
+.form-submit-button {
+    width: 100%;
+    margin-top: 1em;
 }

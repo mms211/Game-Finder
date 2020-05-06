@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import API from "../../../utils/API";
+import Header from "../../Header";
 import NavBar from "../../NavBar";
 import "./Home.css";
 
@@ -56,6 +57,7 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       <NavBar />
       <div className="homeCont">
         <Container>
@@ -118,8 +120,8 @@ const Home = () => {
                 )}
               </Row>
             ) : (
-              <h3>Be a trendsetter, make a post!</h3>
-            )}
+                <h3>Be a trendsetter, make a post!</h3>
+              )}
           </Row>
         </Container>
       </div>

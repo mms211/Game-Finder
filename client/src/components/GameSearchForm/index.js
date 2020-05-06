@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ListGroup from 'react-bootstrap/ListGroup';
 
@@ -29,14 +30,20 @@ const GameSearchForm = () => {
   return (
     <div>
       <Form>
-        <Form.Group controlId="gameInput">
-          <Form.Control
-            type="text"
-            placeholder="Search for a Game..."
-            onChange={handleInputChange}
-          />
-        </Form.Group>
-        <Button type="submit" onClick={handleFormSubmit}>Search</Button>
+        <Form.Row>
+          <Col>
+            <Form.Group controlId="gameInput">
+              <Form.Control
+                type="text"
+                placeholder="Search for a Game..."
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Button type="submit" onClick={handleFormSubmit}>Search</Button>
+          </Col>
+        </Form.Row>
       </Form>
       {searchState !== "resolved"
         ? ""
