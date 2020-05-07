@@ -41,7 +41,7 @@ const GameSearchForm = () => {
             </Form.Group>
           </Col>
           <Col>
-            <Button variant="dark" type="submit" onClick={handleFormSubmit}>Search</Button>
+            <Button className="btn-dark" type="submit" onClick={handleFormSubmit}>Search</Button>
           </Col>
         </Form.Row>
       </Form>
