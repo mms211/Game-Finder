@@ -1,3 +1,19 @@
 .post-wrapper {
-    margin: 2rem;
+    margin: 5rem;
+    width: 25rem;
+    background-color: white;
+  }
+
+  .post-icon {
+    width: 4rem;
+    height: 4rem;
+    padding: 3rem, 3rem;
+  }
+
+  .username {
+    text-transform: uppercase;
+  }
+  
+  .center-icons {
+    text-align: center;
   }

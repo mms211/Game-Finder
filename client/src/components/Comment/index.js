@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Moment from "react-moment";
+import "./style.css";
 
 const Comment = (props) => {
   return (
@@ -29,12 +30,12 @@ const Comment = (props) => {
                 </Card.Body>
               </>
             ) : (
-              <h3>No Comments to Display</h3>
+              <p className="no-comment">No Comments yet. Stay tuned!</p>
             )
           )}
         </>
       ) : (
-        <h3>No Comments to Display</h3>
+        <p className="no-comment">No Comments yet. Stay tuned!</p>
       )}
     </Card>
   );

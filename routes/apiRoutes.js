@@ -99,7 +99,6 @@ router.put('/search', (req, res) => {
   axios.get(url)
     .then(result => {
       res.json(result.data.games);
-      console.log(result.data.games);
     })
     .catch(err => console.log(err));
 });

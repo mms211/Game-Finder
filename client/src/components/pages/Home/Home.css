@@ -23,3 +23,8 @@ h3 {
 .dropdown {
     text-align: center;
 }
+
+.iconButton {
+    height: 1.5rem;
+    width: 1.5rem;
+}

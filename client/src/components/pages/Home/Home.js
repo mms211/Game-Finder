@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Post from "../../Post";
-import Btn from "../../Button";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import CardGroup from "react-bootstrap/CardGroup";
 import API from "../../../utils/API";
 import Header from "../../Header";
 import NavBar from "../../NavBar";
@@ -78,9 +79,9 @@ const Home = () => {
             </Dropdown.Item>
           </DropdownButton>
 
-          <Row className="justify-content-md-center home-row">
+          <CardGroup>
             {posts.length ? (
-              <Row className="justify-content-md-center home-row">
+              <Row>
                 {posts.map((post) =>
                   filter.showAll ? (
                     <Post
@@ -92,11 +93,15 @@ const Home = () => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Btn
-                        variant="dark"
-                        title={"View Post"}
-                        href={`/postview/${post._id}`}
-                      ></Btn>{" "}
+                      <Button variant="light"
+                      href={`/postview/${post._id}`}>
+                        <img
+                          src={require("../../../assets/images/view.png")}
+                          alt="view button"
+                          className="iconButton"
+                        />
+                        {" "}View Post
+                      </Button>
                     </Post>
                   ) : post.postType === filter.postType ? (
                     <Post
@@ -108,11 +113,16 @@ const Home = () => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Btn
-                        variant="dark"
-                        title={"View Post"}
-                        href={`/postview/${post._id}`}
-                      ></Btn>{" "}
+                      <Button variant="light"
+                      href={`/postview/${post._id}`}
+                      >
+                        <img
+                          src={require("../../../assets/images/view.png")}
+                          alt="view button"
+                          className="iconButton"
+                        />
+                        {" "}View Post
+                      </Button>
                     </Post>
                   ) : (
                     <p></p>
@@ -120,9 +130,9 @@ const Home = () => {
                 )}
               </Row>
             ) : (
-                <h3>Be a trendsetter, make a post!</h3>
-              )}
-          </Row>
+              <h3>Be a trendsetter, make a post!</h3>
+            )}
+          </CardGroup>
         </Container>
       </div>
     </>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Post from "../../Post";
-import Btn from "../../Button";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import CardGroup from "react-bootstrap/CardGroup";
+import "./Profile.css";
 import NavBar from "../../NavBar";
 import Header from "../../Header";
 import API from "../../../utils/API";
@@ -34,10 +36,10 @@ const Profile = (props) => {
     <>
       <Header />
       <NavBar />
-      <div className="profile-page">
-        <Container>
+      <Container>
+        <CardGroup>
           {posts.length ? (
-            <Row className="justify-content-md-center home-row">
+            <Row>
               {posts.map((post) =>
                 post.user === props.user.email ? (
                   <div key={post._id}>
@@ -49,23 +51,28 @@ const Profile = (props) => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Btn
-                        variant="dark"
-                        title={"Delete Post"}
-                        onClick={() => deletePost(post._id)}
-                      ></Btn>{" "}
+                      <Button
+                        variant="light"
+                        onClick={() => deletePost(post._id)}>
+                        <img
+                          src={require("../../../assets/images/delete.png")}
+                          alt="delete button"
+                          className="iconButton"
+                        />
+                        {" "}Delete Post
+                      </Button>
                     </Post>
                   </div>
                 ) : (
-                    <h3></h3>
-                  )
+                  <h3></h3>
+                )
               )}
             </Row>
           ) : (
-              <h3>Be a trendsetter, make a post!</h3>
-            )}
-        </Container>
-      </div>
+            <h3>Be a trendsetter, make a post!</h3>
+          )}
+        </CardGroup>
+      </Container>
     </>
   );
 };
