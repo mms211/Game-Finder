@@ -23,7 +23,6 @@ const Authentication = () => {
     event.preventDefault();
     setAuthObject("loading...");
     axios.post("/api/users/add", authObject).then((result) => {
-      console.log(result);
       axios
         .post("/api/authenticate", authObject)
         .then(() => {

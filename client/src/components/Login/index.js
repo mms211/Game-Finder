@@ -27,7 +27,6 @@ const Login = () => {
     axios
       .post("/api/authenticate", login)
       .then((response) => {
-        console.log(response);
         history.push("/");
       })
       .catch((err) => console.log(err));
