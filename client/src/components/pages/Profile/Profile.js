@@ -36,7 +36,7 @@ const Profile = (props) => {
     <>
       <Header />
       <NavBar />
-      <Container className="profile-page">
+      <Container>
         <CardGroup>
           {posts.length ? (
             <Row>
