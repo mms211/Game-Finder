@@ -28,17 +28,17 @@ function Post(props) {
             </Card.Text>
           </Col>
           <Col>
-          <Card.Text>
-          <small className="text-muted username">
-            {props.username}</small><br/>
-            <small>
-            Posted{" "}
-            <Moment fromNow ago>
-              {dateToFormat}
-            </Moment>{" "}
-            ago{" "}
-          </small>
-        </Card.Text>
+            <Card.Text>
+              <small className="text-muted username">{props.username}</small>
+              <br />
+              <small>
+                Posted{" "}
+                <Moment fromNow ago>
+                  {dateToFormat}
+                </Moment>{" "}
+                ago{" "}
+              </small>
+            </Card.Text>
           </Col>
         </Row>
       </Card.Header>

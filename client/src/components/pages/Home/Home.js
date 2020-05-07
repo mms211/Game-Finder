@@ -95,11 +95,13 @@ const Home = () => {
                     >
                       <Button variant="light">
                         <img
-                        src={require("../../../assets/images/view.png")}
-                        alt="view button"
-                        href={`/postview/${post._id}`}
-                        id="viewButton"
-                      />View Post</Button>
+                          src={require("../../../assets/images/view.png")}
+                          alt="view button"
+                          href={`/postview/${post._id}`}
+                          id="viewButton"
+                        />
+                        View Post
+                      </Button>
                     </Post>
                   ) : post.postType === filter.postType ? (
                     <Post
@@ -113,11 +115,12 @@ const Home = () => {
                     >
                       <Button variant="light">
                         <img
-                        src={require("../../../assets/images/view.png")}
-                        alt="view button"
-                        href={`/postview/${post._id}`}
-                        id="viewButton"
-                      /></Button>
+                          src={require("../../../assets/images/view.png")}
+                          alt="view button"
+                          href={`/postview/${post._id}`}
+                          id="viewButton"
+                        />
+                      </Button>
                     </Post>
                   ) : (
                     <p></p>
