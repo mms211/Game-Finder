@@ -51,11 +51,12 @@ const Profile = (props) => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Button variant="light">
+                      <Button
+                        variant="light"
+                        onClick={() => deletePost(post._id)}>
                         <img
                           src={require("../../../assets/images/delete.png")}
                           alt="delete button"
-                          onClick={() => deletePost(post._id)}
                           className="iconButton"
                         />
                         {" "}Delete Post
