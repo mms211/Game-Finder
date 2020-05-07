@@ -93,14 +93,14 @@ const Home = () => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Button variant="light">
+                      <Button variant="light"
+                      href={`/postview/${post._id}`}>
                         <img
                           src={require("../../../assets/images/view.png")}
                           alt="view button"
-                          href={`/postview/${post._id}`}
-                          id="viewButton"
+                          className="iconButton"
                         />
-                        View Post
+                        {" "}View Post
                       </Button>
                     </Post>
                   ) : post.postType === filter.postType ? (
@@ -113,13 +113,15 @@ const Home = () => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Button variant="light">
+                      <Button variant="light"
+                      href={`/postview/${post._id}`}
+                      >
                         <img
                           src={require("../../../assets/images/view.png")}
                           alt="view button"
-                          href={`/postview/${post._id}`}
-                          id="viewButton"
+                          className="iconButton"
                         />
+                        {" "}View Post
                       </Button>
                     </Post>
                   ) : (

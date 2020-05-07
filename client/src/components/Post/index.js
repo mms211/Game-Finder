@@ -13,7 +13,7 @@ function Post(props) {
   return (
     <Card className="post-wrapper">
       <Card.Header>
-        <Row>
+        <Row justify-content-md-center>
           <Col>
             <Image
               src={
@@ -46,7 +46,7 @@ function Post(props) {
         <Card.Title>{props.title}</Card.Title>
         <Card.Text>{props.body}</Card.Text>
       </Card.Body>
-      <Card.Footer>
+      <Card.Footer className="center-icons">
         {props.children}
         <CommentList postId={props.id} />
       </Card.Footer>

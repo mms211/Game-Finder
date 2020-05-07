@@ -4,6 +4,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: navy !important;
+  color: #172A3A !important;
 }
 
 code {

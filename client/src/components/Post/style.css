@@ -13,3 +13,7 @@
   .username {
     text-transform: uppercase;
   }
+  
+  .center-icons {
+    text-align: center;
+  }

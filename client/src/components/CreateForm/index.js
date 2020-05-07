@@ -42,7 +42,7 @@ function CreateForm(props) {
             </Row>
           </Form.Group>
           <GameSearchForm />
-          <Button className="form-submit-button" type="submit" disabled={props.disabled} onClick={props.handleFormSubmit}>Create Post</Button>
+          <Button variant="dark" className="form-submit-button" type="submit" disabled={props.disabled} onClick={props.handleFormSubmit}>Create Post</Button>
         </Form>
       </Container>
     </div>

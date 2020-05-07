@@ -24,7 +24,7 @@ h3 {
     text-align: center;
 }
 
-#viewButton {
+.iconButton {
     height: 2rem;
     width: 2rem;
 }

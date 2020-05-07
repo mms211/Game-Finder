@@ -10,7 +10,6 @@ import API from "../../utils/API";
 import "./style.css";
 
 const CommentList = (props) => {
-  console.log(props);
   const { email } = useContext(UserContext);
   const [show, setShow] = useState(false);
   const [commentObject, setCommentObject] = useState({
@@ -59,7 +58,7 @@ const CommentList = (props) => {
           src={require("../../assets/images/comments.png")}
           alt="comment button"
           onClick={handleShow}
-          id="commentButton"
+          className="iconButton"
         />{" "}
         {responseData.length}
       </Button>
