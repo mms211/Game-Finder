@@ -9,3 +9,7 @@
     height: 4rem;
     padding: 3rem, 3rem;
   }
+
+  .username {
+    text-transform: uppercase;
+  }

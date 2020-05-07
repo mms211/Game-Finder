@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Post from "../../Post";
-import Btn from "../../Button";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -93,11 +93,13 @@ const Home = () => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Btn
-                        variant="dark"
-                        title={"View Post"}
+                      <Button variant="light">
+                        <img
+                        src={require("../../../assets/images/view.png")}
+                        alt="view button"
                         href={`/postview/${post._id}`}
-                      ></Btn>{" "}
+                        id="viewButton"
+                      />View Post</Button>
                     </Post>
                   ) : post.postType === filter.postType ? (
                     <Post
@@ -109,11 +111,13 @@ const Home = () => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Btn
-                        variant="dark"
-                        title={"View Post"}
+                      <Button variant="light">
+                        <img
+                        src={require("../../../assets/images/view.png")}
+                        alt="view button"
                         href={`/postview/${post._id}`}
-                      ></Btn>{" "}
+                        id="viewButton"
+                      /></Button>
                     </Post>
                   ) : (
                     <p></p>
