@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Post from "../../Post";
-import Btn from "../../Button";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import CardGroup from "react-bootstrap/CardGroup";
@@ -51,11 +51,16 @@ const Profile = (props) => {
                       createdAt={post.createdAt}
                       id={post._id}
                     >
-                      <Btn
-                        variant="dark"
-                        title={"Delete Post"}
-                        onClick={() => deletePost(post._id)}
-                      ></Btn>{" "}
+
+                        <Button variant="light">
+                          <img
+                            src={require("../../../assets/images/delete.png")}
+                            alt="delete button"
+                            onClick={() => deletePost(post._id)}
+                            id="deleteButton"
+                          />
+                          Delete Post
+                        </Button>
                     </Post>
                   </div>
                 ) : (

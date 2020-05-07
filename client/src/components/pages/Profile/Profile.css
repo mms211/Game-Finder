@@ -1,3 +1,8 @@
 .profile-page {
     background-color: navy !important;
 }
+
+#deleteButton {
+    height: 2rem;
+    width: 2rem;
+}
